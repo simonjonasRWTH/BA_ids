@@ -2,7 +2,7 @@ import json
 import ipal_iids.settings as settings
 from ids.ids import MetaIDS
 
-class tcp_ids(MetaIDs):
+class tcp_ids(MetaIDS):
     __name = "tcp IDS"
     __description = "tcp based ids"
     __requires = ["train.ipal","live.ipal"]
@@ -25,9 +25,10 @@ class tcp_ids(MetaIDs):
             "PSH" : None,
             "URG" : None,
         }    # keep track of rations of Flags, if deviates too much -> flooding
+        # maybe count flags
 
     def _get_flow(self, msg):
-        # compute flow identifier by concatenating source, source port, destination, port and message type
+        # compute flow identifier by concatenating source, source port, destination, port and (message type)
         
     def train(self, ipal=None, state=None):
         with self._open_file(ipal) as f:
