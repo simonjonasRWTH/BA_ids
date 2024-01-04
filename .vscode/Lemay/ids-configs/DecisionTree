@@ -1,0 +1,90 @@
+{
+    "DecisionTree": {
+        "_type": "DecisionTree",
+        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/Lemay/models/l6_decTree.model",
+        "features": ["tcp_windowsize",
+                    "tcp_window scale",
+                    "tcp_Maximum segment size",
+                    "tcp_Timestamps",
+                    "tcp_sack_permitted",
+                    "tcp_No-Operation (NOP)",
+                    "holding.register.0",
+                    "holding.register.1",
+                    "holding.register.2",
+                    "holding.register.3",
+                    "holding.register.4",
+                    "holding.register.5",
+                    "holding.register.6",
+                    "holding.register.7",
+                    "holding.register.8",
+                    "holding.register.9",
+                    "holding.register.10",
+                    "holding.register.11",
+                    "discrete.input.0",
+                    "discrete.input.1",
+                    "discrete.input.2",
+                    "discrete.input.3",
+                    "discrete.input.4",
+                    "discrete.input.5",
+                    "discrete.input.6",
+                    "discrete.input.7",
+                    "coil.0",
+                    "coil.1",
+                    "coil.2",
+                    "coil.3",
+                    "coil.4"],
+        "preprocessors": [
+            {"method" : "categorical", "features" : ["tcp_sack_permitted","tcp_flags",]},
+            {"method" : "indicate-none", "features" : ["tcp_No-Operation (NOP)"]},
+        ],
+        "trainon": 1.0,
+        "save-training": null,
+        "allow-none": false,
+        "criterion": [
+            "gini",
+            "entropy"
+        ],
+        "splitter": [
+            "best",
+            "random"
+        ],
+        "max_depth": [
+            3,5,10
+        ],
+        "min_samples_split": [
+            2
+        ],
+        "min_samples_leaf": [
+            1
+        ],
+        "min_weight_fraction_leaf": [
+            0
+        ],
+        "max_features": [
+            "sqrt",
+            "log2",
+            null
+        ],
+        "max_leaf_nodes": [
+            null
+        ],
+        "min_impurity_decrease": [
+            0.0
+        ],
+        "random_state": [
+            null
+        ],
+        "class_weight": [
+            "balanced",
+            "balanced_subsample",
+            null
+        ],
+        "ccp_alpha": [
+            0.0
+        ],
+        "scoring": null,
+        "jobs": 4,
+        "verbose": 10,
+        "no-probability": false
+    }
+}

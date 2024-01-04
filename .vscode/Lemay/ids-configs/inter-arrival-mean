@@ -1,0 +1,9 @@
+{
+    "inter-arrival-mean": {
+        "_type": "inter-arrival-mean",
+        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/Lemay/models/l6_inter_arrival_mean.model",
+        "N": 4,
+        "W": 5,
+        "alert_unknown": true
+    }
+}

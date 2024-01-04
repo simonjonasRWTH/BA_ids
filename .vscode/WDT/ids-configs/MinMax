@@ -1,0 +1,18 @@
+{    "MinMax": {
+        "_type": "MinMax",
+        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/WDT/models/w_min_max.model",
+        "features": [
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "holding.register.1",
+            "holding.register.2",
+            "holding.register.3"],
+        "preprocessors": [],
+        "trainon": 1.0,
+        "save-training": null,
+        "allow-none": false,
+        "threshold": 1.0,
+        "discrete_threshold": 10
+    }
+}

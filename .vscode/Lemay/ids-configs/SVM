@@ -1,0 +1,100 @@
+{
+    "SVM": {
+        "_type": "SVM",
+        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/Lemay/models/l6_svm.model",
+        "features": ["tcp_windowsize",
+                    "tcp_window scale",
+                    "tcp_Maximum segment size",
+                    "tcp_Timestamps",
+                    "tcp_sack_permitted",
+                    "tcp_No-Operation (NOP)",
+                    "holding.register.0",
+                    "holding.register.1",
+                    "holding.register.2",
+                    "holding.register.3",
+                    "holding.register.4",
+                    "holding.register.5",
+                    "holding.register.6",
+                    "holding.register.7",
+                    "holding.register.8",
+                    "holding.register.9",
+                    "holding.register.10",
+                    "holding.register.11",
+                    "discrete.input.0",
+                    "discrete.input.1",
+                    "discrete.input.2",
+                    "discrete.input.3",
+                    "discrete.input.4",
+                    "discrete.input.5",
+                    "discrete.input.6",
+                    "discrete.input.7",
+                    "coil.1",
+                    "coil.2",
+                    "coil.3",
+                    "coil.4"],
+        "preprocessors": [
+            {"method" : "categorical", "features" : ["tcp_sack_permitted","tcp_flags",]},
+            {"method" : "indicate-none", "features" : ["tcp_No-Operation (NOP)"]},
+        ],
+        "trainon": 1.0,
+        "save-training": null,
+        "allow-none": false,
+        "C": [
+            0.1,
+            1,
+            10,
+            100,
+            1000
+        ],
+        "kernel": [
+            "rbf",
+            "linear",
+            "sigmoid",
+            "poly"
+        ],
+        "degree": [
+            3
+        ],
+        "gamma": [
+            1,
+            0.1,
+            0.01,
+            0.001,
+            "auto",
+            "scale"
+        ],
+        "coef0": [
+            0.0
+        ],
+        "shrinking": [
+            true
+        ],
+        "tol": [
+            0.001
+        ],
+        "cache_size": [
+            1024
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "max_iter": [
+            -1
+        ],
+        "decision_function_shape": [
+            "ovr",
+            "ovo"
+        ],
+        "break_ties": [
+            false
+        ],
+        "random_state": [
+            null
+        ],
+        "scoring": null,
+        "jobs": 4,
+        "verbose": 10,
+        "no-probability": false
+    }
+}

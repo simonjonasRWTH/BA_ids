@@ -1,0 +1,9 @@
+{    
+    "inter-arrival-range": {
+        "_type": "inter-arrival-range",
+        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/WDT/models/w_inter_arrival_range.model",
+        "N": 4,
+        "W": 5,
+        "alert_unknown": true
+    }
+}

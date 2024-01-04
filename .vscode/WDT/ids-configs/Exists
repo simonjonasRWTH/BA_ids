@@ -1,0 +1,13 @@
+{    
+    "Exists": {
+        "_type": "Exists",
+        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/WDT/models/w_exist.model",
+        "exclude": ["tcp_windowsize",
+                    "tcp_window scale",
+                    "tcp_Maximum segment size",
+                    "holding.register.1",
+                    "holding.register.2",
+                    "holding.register.3"],
+        "threshold": 10
+    }
+}
