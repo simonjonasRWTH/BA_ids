@@ -38,12 +38,16 @@ class ExistsIDS(MetaIDS):
 
                     if k not in self.exists:
                         self.exists[k] = set()
+                    if k == "tcp_flags":
+                        v = "-".join(v)
                     self.exists[k].add(v)
 
     def new_state_msg(self, msg):
         anomaly = False
 
         for k, v in msg[self.key].items():
+            if k == "tcp_flags":
+                v = "-".join(v)
             if k in self.settings["exclude"]:
                 continue
             elif k not in self.exists:

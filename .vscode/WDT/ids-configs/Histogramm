@@ -46,8 +46,8 @@
         "coil.31",
         "coil.32"],
     "preprocessors": [
-        {"method" : "categorical", "features" : ["tcp_sack_permitted","tcp_flags",]},
-        {"method" : "indicate-none", "features" : ["tcp_No-Operation (NOP)"]},
+        {"method" : "categorical", "features" : ["tcp_sack_permitted","tcp_flags"]},
+        {"method" : "indicate-none", "features" : ["tcp_No-Operation (NOP)"]}
     ],
     "trainon": 1.0,
     "save-training": null,

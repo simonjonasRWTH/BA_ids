@@ -40,7 +40,9 @@ class FeatureIDS(MetaIDS):
     def _get_val(self, msg, val):
         # Lookup value
         for index in val:
-            if index in msg:
+            if index in msg["data"]:
+                msg = msg["data"][index]
+            elif index in msg:
                 msg = msg[index]
             else:
                 if not self.settings["allow-none"]:

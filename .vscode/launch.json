@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "IPAL-IDS",
+            "name": "Lemay",
             "type": "python",
             "request": "launch",
             "program": "ipal-iids",
@@ -14,13 +14,14 @@
                 "PYTHONPATH" : "${workspaceRoot}"
             },
             "args": [
-                "--config", "./.vscode/ids.config",
-                "--combiner.config", "./.vscode/combiner.config",
-                "--train.ipal", "TODO",
-                "--live.ipal", "TODO",
-                "--output", "./tmp/out.txt",
+                "--config", "./.vscode/Lemay/ids-configs/BLSTM",
+                "--combiner.config", "./.vscode/Lemay/Lemay_combiner.config",
+                "--train.ipal", "/home/sj/BA_stuff/transcribed_pcaps/Lemay/normal/debug.in",
+                "--live.ipal", "/home/sj/BA_stuff/transcribed_pcaps/Lemay/attack/CnC400.in",
+                "--output", "./tmp/debug-out.txt",
                 "--log", "INFO",
-                "--logfile", "./tmp/log.txt",
+                "--logfile", "./tmp/debug-log.txt",
+                "--retrain",
             ],
         }
     ]
