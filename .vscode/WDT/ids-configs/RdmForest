@@ -1,7 +1,7 @@
 {
-    "DecisionTree": {
-        "_type": "DecisionTree",
-        "model-file": "../models/decTree.model",
+    "RandomForest": {
+        "_type": "RandomForest",
+        "model-file": "../models/RdmForest.model",
         "features": [
             "tcp_windowsize",
             "tcp_window scale",
@@ -42,7 +42,7 @@
             "protocol",
             "activity"],
         "preprocessors": [
-            {"method" : "label", "features" : ["tcp_sack_permitted","tcp_flags","src","dest","protocol","activity"]},
+            {"method" : "categorical", "features" : ["tcp_sack_permitted","tcp_flags"]},
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
                 "tcp_sack_permitted",
@@ -75,21 +75,26 @@
                 "Valv_17",
                 "Valv_18",
                 "Valv_20",
-                "Valv_22"]}    
+                "Valv_22"]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/dectree.model",
+        "save-training": "../models/RdmForest.model",
         "allow-none": true,
+        "n_estimators": [
+            1,
+            10,
+            100,
+            1000
+        ],
         "criterion": [
             "gini",
             "entropy"
         ],
-        "splitter": [
-            "best",
-            "random"
-        ],
         "max_depth": [
-            3,5,10
+            null,
+            10,
+            100,
+            1000
         ],
         "min_samples_split": [
             2
@@ -98,12 +103,11 @@
             1
         ],
         "min_weight_fraction_leaf": [
-            0
+            0.0
         ],
         "max_features": [
             "sqrt",
-            "log2",
-            null
+            "log2"
         ],
         "max_leaf_nodes": [
             null
@@ -111,8 +115,20 @@
         "min_impurity_decrease": [
             0.0
         ],
+        "bootstrap": [
+            true,
+            false
+        ],
+        "oob_score": [
+            true,
+            false
+        ],
         "random_state": [
             null
+        ],
+        "warm_start": [
+            true,
+            false
         ],
         "class_weight": [
             "balanced",
@@ -121,6 +137,9 @@
         ],
         "ccp_alpha": [
             0.0
+        ],
+        "max_samples": [
+            null
         ],
         "scoring": null,
         "jobs": 4,

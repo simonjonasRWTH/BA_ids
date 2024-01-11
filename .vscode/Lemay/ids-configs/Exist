@@ -1,21 +1,10 @@
 {
     "Exists": {
         "_type": "Exists",
-        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/Lemay/models/l6_exist.model",
+        "model-file": "../models/exist.model",
         "exclude": [
-            "holding.register.8",
-            "holding.register.9",
-            "holding.register.10",
-            "holding.register.11",
-            "discrete.input.4",
-            "discrete.input.5",
-            "discrete.input.6",
-            "discrete.input.7",
-            "coil.0",
-            "coil.1",
-            "coil.2",
-            "coil.3",
-            "coil.4"],
+            "tcp_seqnr",
+            "tcp_ack"],
         "threshold": 10
     }
 }

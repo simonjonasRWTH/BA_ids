@@ -1,31 +1,32 @@
 {
-    "ExtraTrees": {
-        "_type": "ExtraTrees",
-        "model-file": "../models/extra.model",
-        "features": ["tcp_windowsize",
-                    "tcp_window scale",
-                    "tcp_Maximum segment size",
-                    "tcp_Timestamps",
-                    "tcp_sack_permitted",
-                    "tcp_No-Operation (NOP)",
-                    "holding.register.8",
-                    "holding.register.9",
-                    "holding.register.10",
-                    "holding.register.11",
-                    "discrete.input.4",
-                    "discrete.input.5",
-                    "discrete.input.6",
-                    "discrete.input.7",
-                    "coil.0",
-                    "coil.1",
-                    "coil.2",
-                    "coil.3",
-                    "coil.4",
-                    "src",
-                    "dest",
-                    "length",
-                    "protocol",
-                    "activity"],
+    "RandomForest": {
+        "_type": "RandomForest",
+        "model-file": "../models/rdmFor.model",
+        "features": [
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_Timestamps",
+            "tcp_sack_permitted",
+            "tcp_No-Operation (NOP)",
+            "holding.register.8",
+            "holding.register.9",
+            "holding.register.10",
+            "holding.register.11",
+            "discrete.input.4",
+            "discrete.input.5",
+            "discrete.input.6",
+            "discrete.input.7",
+            "coil.0",
+            "coil.1",
+            "coil.2",
+            "coil.3",
+            "coil.4",
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity"],
         "preprocessors": [
             {"method" : "label", "features" : ["tcp_sack_permitted","tcp_flags","src","dest","protocol","activity"]},
             {"method" : "indicate-none", "features" : [
@@ -49,7 +50,7 @@
                 "coil.4"]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/extra.model",
+        "save-training": "../models/rdmFor.model",
         "allow-none": true,
         "n_estimators": [
             1,
@@ -62,7 +63,10 @@
             "entropy"
         ],
         "max_depth": [
-            null
+            null,
+            10,
+            100,
+            1000
         ],
         "min_samples_split": [
             2
@@ -71,7 +75,7 @@
             1
         ],
         "min_weight_fraction_leaf": [
-            0
+            0.0
         ],
         "max_features": [
             "sqrt",
@@ -95,6 +99,7 @@
             null
         ],
         "warm_start": [
+            true,
             false
         ],
         "class_weight": [

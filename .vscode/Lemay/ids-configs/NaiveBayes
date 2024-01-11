@@ -1,16 +1,14 @@
 {
-    "Histogram": {
-        "_type": "Histogram",
-        "model-file": "../models/histo.model",
+    "NaiveBayes": {
+        "_type": "NaiveBayes",
+        "model-file": "../models/NaiveBayes.model",
         "features": [
             "tcp_flags",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_Timestamps",
+            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
             "holding.register.8",
             "holding.register.9",
             "holding.register.10",
@@ -24,17 +22,19 @@
             "coil.2",
             "coil.3",
             "coil.4",
-            "length"
+            "src",
+            "dest",
+            "protocol",
+            "activity"
         ],
         "preprocessors": [
-            {"method" : "indicate-none", "features" : ["tcp_No-Operation (NOP)", "tcp_window scale"]},
-            {"method" : "label", "features" : ["tcp_flags"]}
+            {"method" : "label", "features" : ["tcp_flags","src","dest","protocol","activity"]},
+            {"method" : "indicate-none", "features" : ["tcp_sack_permitted","tcp_No-Operation (NOP)","tcp_window scale"]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/histo.model",
+        "save-training": "../models/NaiveBayes.model",
         "allow-none": true,
-        "window_size": 100,
-        "threshold": 1.0,
-        "discrete_threshold": 10
+        "nb-classifier": "Gaussian",
+        "no-probability": false
     }
 }

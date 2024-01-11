@@ -1,10 +1,14 @@
-{    "MinMax": {
-        "_type": "MinMax",
-        "model-file": "../models/minmax.model",
+{
+    "NaiveBayes": {
+        "_type": "NaiveBayes",
+        "model-file": "../models/NaiveBayes.model",
         "features": [
+            "tcp_flags",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
+            "tcp_sack_permitted",
+            "tcp_No-Operation (NOP)",
             "Tank_1",
             "Tank_2",
             "Tank_3",
@@ -31,14 +35,19 @@
             "Valv_17",
             "Valv_18",
             "Valv_20",
-            "Valv_22"],
+            "Valv_22",
+            "src",
+            "dest",
+            "protocol",
+            "activity"],
         "preprocessors": [
-            {"method" : "indicate-none", "features" : ["tcp_window scale"]}
+            {"method" : "label", "features" : ["tcp_flags","src","dest","protocol","activity"]},
+            {"method" : "indicate-none", "features" : ["tcp_sack_permitted","tcp_No-Operation (NOP)","tcp_window scale"]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/minmax.model",
+        "save-training": "../models/NaiveBayes.model",
         "allow-none": true,
-        "threshold": 1.0,
-        "discrete_threshold": 10
+        "nb-classifier": "Gaussian",
+        "no-probability": false
     }
 }

@@ -1,7 +1,7 @@
 {
     "BLSTM": {
         "_type": "BLSTM",
-        "model-file": "/home/sj/BA_stuff/BA_ids/.vscode/Lemay/models/l6_BLSTM.model",
+        "model-file": "../models/blstm.model",
         "features": ["tcp_windowsize",
                     "tcp_window scale",
                     "tcp_Maximum segment size",
@@ -49,7 +49,7 @@
                 "coil.4"]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/BLSTM.model",
+        "save-training": "../models/blstm.model",
         "allow-none": true,
         "learning_rate": [
             0.001,
