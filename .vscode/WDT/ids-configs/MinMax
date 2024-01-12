@@ -2,6 +2,7 @@
         "_type": "MinMax",
         "model-file": "../models/minmax.model",
         "features": [
+            "length",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",

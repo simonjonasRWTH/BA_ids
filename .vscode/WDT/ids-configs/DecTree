@@ -3,12 +3,19 @@
         "_type": "DecisionTree",
         "model-file": "../models/decTree.model",
         "features": [
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
             "tcp_Timestamps",
             "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
+            "tcp_seqnr",
+            "tcp_ack",
             "Tank_1",
             "Tank_2",
             "Tank_3",
@@ -35,14 +42,9 @@
             "Valv_17",
             "Valv_18",
             "Valv_20",
-            "Valv_22",
-            "src",
-            "dest",
-            "length",
-            "protocol",
-            "activity"],
+            "Valv_22"
+        ],
         "preprocessors": [
-            {"method" : "label", "features" : ["tcp_sack_permitted","tcp_flags","src","dest","protocol","activity"]},
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
                 "tcp_sack_permitted",
@@ -75,7 +77,16 @@
                 "Valv_17",
                 "Valv_18",
                 "Valv_20",
-                "Valv_22"]}    
+                "Valv_22"
+                ]},
+            {"method" : "label", "features" : [
+                "tcp_sack_permitted",
+                "tcp_flags",
+                "src",
+                "dest",
+                "protocol",
+                "activity"
+                ]}
         ],
         "trainon": 1.0,
         "save-training": "../models/dectree.model",

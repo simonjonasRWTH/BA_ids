@@ -3,12 +3,12 @@
     "_type": "Histogram",
     "model-file": "../models/histo.model",
     "features": [
+        "length",
         "tcp_flags",
         "tcp_windowsize",
         "tcp_window scale",
         "tcp_Maximum segment size",
         "tcp_Timestamps",
-        "tcp_No-Operation (NOP)",
         "tcp_seqnr",
         "tcp_ack",
         "Tank_1",
@@ -37,11 +37,18 @@
         "Valv_17",
         "Valv_18",
         "Valv_20",
-        "Valv_22",
-        "length"],
+        "Valv_22"
+    ],
     "preprocessors": [
-        {"method" : "indicate-none", "features" : ["tcp_No-Operation (NOP)", "tcp_window scale"]},
-        {"method" : "label", "features" : ["tcp_flags"]}
+        {"method" : "indicate-none", "features" : [
+            "tcp_No-Operation (NOP)",
+            "tcp_window scale",
+            "tcp_Timestamps"
+        ]},
+        {"method" : "label", "features" : [
+            "tcp_flags",
+            "tcp_No-Operation (NOP)"
+        ]}
     ],
     "trainon": 1.0,
     "save-training": "../models/histo.model",

@@ -4,7 +4,9 @@
         "model-file": "../models/exist.model",
         "exclude": [
             "tcp_seqnr",
-            "tcp_ack"],
+            "tcp_ack",
+            "tcp_Timestamps"
+        ],
         "threshold": 10
     }
 }
