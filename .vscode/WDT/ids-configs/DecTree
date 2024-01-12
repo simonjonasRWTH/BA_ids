@@ -16,6 +16,7 @@
             "tcp_No-Operation (NOP)",
             "tcp_seqnr",
             "tcp_ack",
+            "tcp_flags",
             "Tank_1",
             "Tank_2",
             "Tank_3",
@@ -80,7 +81,6 @@
                 "Valv_22"
                 ]},
             {"method" : "label", "features" : [
-                "tcp_sack_permitted",
                 "tcp_flags",
                 "src",
                 "dest",

@@ -16,6 +16,7 @@
             "tcp_No-Operation (NOP)",
             "tcp_seqnr",
             "tcp_ack",
+            "tcp_flags",
             "holding.register.8",
             "holding.register.9",
             "holding.register.10",
@@ -52,7 +53,6 @@
                 "coil.4"
                 ]},
             {"method" : "label", "features" : [
-                "tcp_sack_permitted",
                 "tcp_flags",
                 "src",
                 "dest",

@@ -40,7 +40,9 @@ class FeatureIDS(MetaIDS):
     def _get_val(self, msg, val):
         # Lookup value
         for index in val:
-            if index in msg["data"]:
+            if index == "tcp_flags":
+                msg = "-".join(msg["data"]["tcp_flags"])
+            elif index in msg["data"]:
                 msg = msg["data"][index]
             elif index in msg:
                 msg = msg[index]

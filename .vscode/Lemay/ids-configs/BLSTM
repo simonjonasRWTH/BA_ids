@@ -12,10 +12,10 @@
             "tcp_window scale",
             "tcp_Maximum segment size",
             "tcp_Timestamps",
-            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
             "tcp_seqnr",
             "tcp_ack",
+            "tcp_flags",
             "holding.register.8",
             "holding.register.9",
             "holding.register.10",
@@ -33,7 +33,6 @@
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
-                "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
                 "tcp_Timestamps",
                 "tcp_Maximum segment size",
@@ -52,7 +51,6 @@
                 "coil.4"
                 ]},
             {"method" : "label", "features" : [
-                "tcp_sack_permitted",
                 "tcp_flags",
                 "src",
                 "dest",
