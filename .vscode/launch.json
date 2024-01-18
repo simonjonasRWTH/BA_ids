@@ -14,14 +14,14 @@
                 "PYTHONPATH" : "${workspaceRoot}"
             },
             "args": [
-                "--config", "./.vscode/Lemay/ids-configs/BLSTM",
+                "--config", "./.vscode/Lemay/ids-configs/IsolationForest",
                 "--combiner.config", "./.vscode/Lemay/Lemay_combiner.config",
-                "--train.ipal", "/home/sj/BA_stuff/transcribed_pcaps/Lemay/normal/debug.in",
-                "--live.ipal", "/home/sj/BA_stuff/transcribed_pcaps/Lemay/attack/CnC400.in",
+                "--train.ipal", "/home/sj/BA_stuff/transcribed_pcaps/Lemay/normal/run1_6rtu.pcap.out",
+                "--live.ipal", "/home/sj/BA_stuff/transcribed_pcaps/Lemay/attack/CnC_uploading_exe_modbus_6RTU_with_operate.out",
                 "--output", "./tmp/debug-out.txt",
                 "--log", "INFO",
                 "--logfile", "./tmp/debug-log.txt",
-                "--retrain",
+                "--retrain"
             ],
         }
     ]

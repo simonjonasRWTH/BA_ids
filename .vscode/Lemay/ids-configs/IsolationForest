@@ -3,19 +3,13 @@
         "_type": "IsolationForest",
         "model-file": "../models/isoFor.model",
         "features": [
-            "src",
-            "dest",
-            "length",
             "protocol",
             "activity",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_Timestamps",
             "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
             "tcp_flags",
             "holding.register.8",
             "holding.register.9",
@@ -36,7 +30,6 @@
                 "tcp_window scale",
                 "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
-                "tcp_Timestamps",
                 "tcp_Maximum segment size",
                 "holding.register.8",
                 "holding.register.9",
@@ -54,8 +47,6 @@
                 ]},
             {"method" : "label", "features" : [
                 "tcp_flags",
-                "src",
-                "dest",
                 "protocol",
                 "activity"
                 ]}

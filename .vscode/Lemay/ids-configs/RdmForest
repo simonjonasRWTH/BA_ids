@@ -3,9 +3,6 @@
         "_type": "RandomForest",
         "model-file": "../models/rdmFor.model",
         "features": [
-            "src",
-            "dest",
-            "length",
             "protocol",
             "activity",
             "tcp_windowsize",
@@ -53,8 +50,6 @@
                 "coil.4"]},
             {"method" : "label", "features" : [
                 "tcp_flags",
-                "src",
-                "dest",
                 "protocol",
                 "activity"
                 ]}

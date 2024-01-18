@@ -46,8 +46,7 @@
                 "coil.4"
                 ]},
             {"method" : "label", "features" : [
-                "tcp_flags",
-                "tcp_No-Operation (NOP)"
+                "tcp_flags"
                 ]}
         ],
         "trainon": 1.0,

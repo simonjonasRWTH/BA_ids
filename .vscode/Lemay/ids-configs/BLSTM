@@ -11,10 +11,7 @@
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_Timestamps",
             "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
             "tcp_flags",
             "holding.register.8",
             "holding.register.9",
@@ -34,7 +31,6 @@
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
                 "tcp_No-Operation (NOP)",
-                "tcp_Timestamps",
                 "tcp_Maximum segment size",
                 "holding.register.8",
                 "holding.register.9",
@@ -56,8 +52,7 @@
                 "dest",
                 "protocol",
                 "activity"
-                ]}
-
+            ]}
         ],
         "trainon": 1.0,
         "save-training": "../models/blstm.model",

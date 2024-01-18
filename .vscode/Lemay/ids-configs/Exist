@@ -5,7 +5,8 @@
         "exclude": [
             "tcp_seqnr",
             "tcp_ack",
-            "tcp_Timestamps"
+            "tcp_Timestamps",
+            "timestamp"
         ],
         "threshold": 10
     }
