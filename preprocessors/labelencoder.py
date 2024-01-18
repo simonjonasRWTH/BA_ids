@@ -27,7 +27,7 @@ class LabelEncoderPreprocessor(Preprocessor):
                 continue
 
             self.encoder[i] = LabelEncoder()
-            self.fitdata[i] = list(set([v[i] for v in values]))
+            self.fitdata[i] = list(set([v[i] for v in values]))+["<unknown>"]
             self.encoder[i].fit(self.fitdata[i])
 
     def transform(self, value):
@@ -36,8 +36,11 @@ class LabelEncoderPreprocessor(Preprocessor):
 
         for i in range(len(self.features)):
             if not self.features[i] or value[i] is None:
-                continue
-
+                continue            
+            
+            if value[i] not in self.encoder[i].classes_:
+                value[i] = "<unknown>"
+            
             try:
                 value[i] = float(self.encoder[i].transform([value[i]])[0])
             except ValueError:
