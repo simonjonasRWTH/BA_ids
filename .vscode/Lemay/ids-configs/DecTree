@@ -3,6 +3,9 @@
         "_type": "DecisionTree",
         "model-file": "../models/decTree.model",
         "features": [
+            "src",
+            "dest",
+            "length",
             "protocol",
             "activity",
             "tcp_windowsize",
@@ -63,7 +66,7 @@
             "random"
         ],
         "max_depth": [
-            3,5,10
+            5,10,20,30
         ],
         "min_samples_split": [
             2
@@ -97,7 +100,7 @@
             0.0
         ],
         "scoring": null,
-        "jobs": 4,
+        "jobs": 5,
         "verbose": 10,
         "no-probability": false
     }

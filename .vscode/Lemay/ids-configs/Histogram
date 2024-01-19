@@ -1,7 +1,7 @@
 {
     "Histogram": {
         "_type": "Histogram",
-        "model-file": "../models/histo.model",
+        "model-file": null,
         "features": [
             "tcp_flags",
             "tcp_windowsize",
@@ -50,7 +50,7 @@
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/histo.model",
+        "save-training": null,
         "allow-none": true,
         "window_size": 100,
         "threshold": 1.0,
