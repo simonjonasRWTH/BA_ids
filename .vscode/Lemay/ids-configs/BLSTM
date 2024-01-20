@@ -3,8 +3,6 @@
         "_type": "BLSTM",
         "model-file": "../models/blstm.model",
         "features": [
-            "src",
-            "dest",
             "length",
             "protocol",
             "activity",
@@ -48,8 +46,6 @@
                 ]},
             {"method" : "label", "features" : [
                 "tcp_flags",
-                "src",
-                "dest",
                 "protocol",
                 "activity"
             ]}

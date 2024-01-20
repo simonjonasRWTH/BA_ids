@@ -49,6 +49,8 @@
                 "coil.4"
                 ]},
             {"method" : "label", "features" : [
+                "src",
+                "dest",
                 "tcp_flags",
                 "protocol",
                 "activity"
