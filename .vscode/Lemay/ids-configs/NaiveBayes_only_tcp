@@ -1,0 +1,37 @@
+{
+    "NaiveBayes": {
+        "_type": "NaiveBayes",
+        "model-file": "../models/NaiveBayes_tcp.model",
+        "features": [
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags"
+        ],
+        "preprocessors": [
+            {"method" : "indicate-none", "features" : [
+                "tcp_window scale",
+                "tcp_No-Operation (NOP)",
+                "tcp_Maximum segment size"
+                ]},
+            {"method" : "label", "features" : [
+                "tcp_flags",
+                "src",
+                "dest",
+                "protocol",
+                "activity"
+                ]}
+        ],
+        "trainon": 1.0,
+        "save-training": "../models/NaiveBayes_tcp.model",
+        "allow-none": true,
+        "nb-classifier": "Gaussian",
+        "no-probability": false
+    }
+}

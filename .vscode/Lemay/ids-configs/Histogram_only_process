@@ -3,14 +3,6 @@
         "_type": "Histogram",
         "model-file": null,
         "features": [
-            "tcp_flags",
-            "tcp_windowsize",
-            "tcp_window scale",
-            "tcp_Maximum segment size",
-            "tcp_Timestamps",
-            "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
             "holding.register.8",
             "holding.register.9",
             "holding.register.10",
@@ -24,13 +16,9 @@
             "coil.2",
             "coil.3",
             "coil.4",
-            "length"
         ],
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
-                "tcp_No-Operation (NOP)", 
-                "tcp_window scale",
-                "tcp_Timestamps",
                 "holding.register.8",
                 "holding.register.9",
                 "holding.register.10",
@@ -44,9 +32,6 @@
                 "coil.2",
                 "coil.3",
                 "coil.4"
-                ]},
-            {"method" : "label", "features" : [
-                "tcp_flags"
                 ]}
         ],
         "trainon": 1.0,

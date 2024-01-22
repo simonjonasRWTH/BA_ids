@@ -1,0 +1,102 @@
+{
+    "ExtraTrees": {
+        "_type": "ExtraTrees",
+        "model-file": "../models/extra_proc.model",
+        "features": [
+            "holding.register.8",
+            "holding.register.9",
+            "holding.register.10",
+            "holding.register.11",
+            "discrete.input.4",
+            "discrete.input.5",
+            "discrete.input.6",
+            "discrete.input.7",
+            "coil.0",
+            "coil.1",
+            "coil.2",
+            "coil.3",
+            "coil.4"
+        ],
+        "preprocessors": [
+            {"method" : "indicate-none", "features" : [
+                "holding.register.8",
+                "holding.register.9",
+                "holding.register.10",
+                "holding.register.11",
+                "discrete.input.4",
+                "discrete.input.5",
+                "discrete.input.6",
+                "discrete.input.7",
+                "coil.0",
+                "coil.1",
+                "coil.2",
+                "coil.3",
+                "coil.4"
+                ]}
+        ],
+        "trainon": 1.0,
+        "save-training": "../models/extra_proc.model",
+        "allow-none": true,
+        "n_estimators": [
+            1,
+            10,
+            100,
+            1000
+        ],
+        "criterion": [
+            "gini",
+            "entropy"
+        ],
+        "max_depth": [
+            null
+        ],
+        "min_samples_split": [
+            2
+        ],
+        "min_samples_leaf": [
+            1
+        ],
+        "min_weight_fraction_leaf": [
+            0
+        ],
+        "max_features": [
+            "sqrt",
+            "log2"
+        ],
+        "max_leaf_nodes": [
+            null
+        ],
+        "min_impurity_decrease": [
+            0.0
+        ],
+        "bootstrap": [
+            true,
+            false
+        ],
+        "oob_score": [
+            true,
+            false
+        ],
+        "random_state": [
+            null
+        ],
+        "warm_start": [
+            false
+        ],
+        "class_weight": [
+            "balanced",
+            "balanced_subsample",
+            null
+        ],
+        "ccp_alpha": [
+            0.0
+        ],
+        "max_samples": [
+            null
+        ],
+        "scoring": null,
+        "jobs": 5,
+        "verbose": 10,
+        "no-probability": false
+    }
+}

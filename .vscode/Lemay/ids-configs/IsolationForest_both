@@ -1,7 +1,7 @@
 {
-    "SVM": {
-        "_type": "SVM",
-        "model-file": "../models/svm.model",
+    "IsolationForest": {
+        "_type": "IsolationForest",
+        "model-file": "../models/isoFor_both.model",
         "features": [
             "src",
             "dest",
@@ -11,11 +11,7 @@
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_Timestamps",
-            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
             "tcp_flags",
             "holding.register.8",
             "holding.register.9",
@@ -34,9 +30,7 @@
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
-                "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
-                "tcp_Timestamps",
                 "tcp_Maximum segment size",
                 "holding.register.8",
                 "holding.register.9",
@@ -53,72 +47,22 @@
                 "coil.4"
                 ]},
             {"method" : "label", "features" : [
-                "tcp_flags",
                 "src",
                 "dest",
+                "tcp_flags",
                 "protocol",
                 "activity"
-                ]}
+            ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/svm.model",
+        "save-training": "../models/isoFor_both.model",
         "allow-none": true,
-        "C": [
-            0.1,
-            1,
-            10,
-            100,
-            1000
-        ],
-        "kernel": [
-            "rbf",
-            "linear",
-            "sigmoid",
-            "poly"
-        ],
-        "degree": [
-            3
-        ],
-        "gamma": [
-            1,
-            0.1,
-            0.01,
-            0.001,
-            "auto",
-            "scale"
-        ],
-        "coef0": [
-            0.0
-        ],
-        "shrinking": [
-            true
-        ],
-        "tol": [
-            0.001
-        ],
-        "cache_size": [
-            1024
-        ],
-        "class_weight": [
-            null,
-            "balanced"
-        ],
-        "max_iter": [
-            -1
-        ],
-        "decision_function_shape": [
-            "ovr",
-            "ovo"
-        ],
-        "break_ties": [
-            false
-        ],
-        "random_state": [
-            null
-        ],
-        "scoring": null,
-        "jobs": 4,
-        "verbose": 10,
-        "no-probability": false
+        "n_estimators": 100,
+        "max_samples": "auto",
+        "contamination": "auto",
+        "max_features": 1,
+        "bootstrap": false,
+        "random_state": null,
+        "warm_start": false
     }
 }

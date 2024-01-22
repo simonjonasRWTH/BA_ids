@@ -1,0 +1,26 @@
+{
+    "Exists": {
+        "_type": "Exists",
+        "model-file": "../models/exist_tcp.model",
+        "exclude": [
+            "tcp_seqnr",
+            "tcp_ack",
+            "tcp_Timestamps",
+            "timestamp",
+            "holding.register.8",
+            "holding.register.9",
+            "holding.register.10",
+            "holding.register.11",
+            "discrete.input.4",
+            "discrete.input.5",
+            "discrete.input.6",
+            "discrete.input.7",
+            "coil.0",
+            "coil.1",
+            "coil.2",
+            "coil.3",
+            "coil.4"
+        ],
+        "threshold": 10
+    }
+}

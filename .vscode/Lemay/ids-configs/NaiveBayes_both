@@ -1,17 +1,16 @@
 {
     "NaiveBayes": {
         "_type": "NaiveBayes",
-        "model-file": "../models/NaiveBayes.model",
+        "model-file": "../models/NaiveBayes_both.model",
         "features": [
             "src",
             "dest",
+            "activity",
             "length",
             "protocol",
-            "activity",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
             "tcp_flags",
             "holding.register.8",
@@ -31,7 +30,6 @@
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
-                "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
                 "tcp_Maximum segment size",
                 "holding.register.8",
@@ -50,14 +48,16 @@
                 ]},
             {"method" : "label", "features" : [
                 "tcp_flags",
-                "src",
-                "dest",
                 "protocol",
                 "activity"
-                ]}
+            ]},
+            {"method" : "categorical", "features": [
+                "src",
+                "dest"
+            ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/NaiveBayes.model",
+        "save-training": "../models/NaiveBayes_both.model",
         "allow-none": true,
         "nb-classifier": "Gaussian",
         "no-probability": false

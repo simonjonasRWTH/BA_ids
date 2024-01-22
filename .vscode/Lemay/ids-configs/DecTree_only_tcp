@@ -1,0 +1,81 @@
+{
+    "DecisionTree": {
+        "_type": "DecisionTree",
+        "model-file": "../models/decTree_tcp.model",
+        "features": [
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags"
+        ],
+        "preprocessors": [
+            {"method" : "indicate-none", "features" : [
+                "tcp_window scale",
+                "tcp_No-Operation (NOP)",
+                "tcp_Maximum segment size"
+                ]},
+            {"method" : "label", "features" : [
+                "src",
+                "dest",
+                "tcp_flags",
+                "protocol",
+                "activity"
+                ]}
+        ],
+        "trainon": 1.0,
+        "save-training": "../models/decTree_tcp.model",
+        "allow-none": true,
+        "criterion": [
+            "gini",
+            "entropy"
+        ],
+        "splitter": [
+            "best",
+            "random"
+        ],
+        "max_depth": [
+            5,10,20,30
+        ],
+        "min_samples_split": [
+            2
+        ],
+        "min_samples_leaf": [
+            1
+        ],
+        "min_weight_fraction_leaf": [
+            0
+        ],
+        "max_features": [
+            "sqrt",
+            "log2",
+            null
+        ],
+        "max_leaf_nodes": [
+            null
+        ],
+        "min_impurity_decrease": [
+            0.0
+        ],
+        "random_state": [
+            null
+        ],
+        "class_weight": [
+            "balanced",
+            "balanced_subsample",
+            null
+        ],
+        "ccp_alpha": [
+            0.0
+        ],
+        "scoring": null,
+        "jobs": 5,
+        "verbose": 10,
+        "no-probability": false
+    }
+}

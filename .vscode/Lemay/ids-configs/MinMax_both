@@ -1,7 +1,7 @@
 {
     "MinMax": {
         "_type": "MinMax",
-        "model-file": "../models/minmax.model",
+        "model-file": "../models/minmax_both.model",
         "features": [
             "length",
             "tcp_windowsize",
@@ -25,7 +25,7 @@
             {"method" : "indicate-none", "features" : ["tcp_window scale"]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/minmax.model",
+        "save-training": "../models/minmax_both.model",
         "allow-none": true,
         "threshold": 1.0,
         "discrete_threshold": 10

@@ -1,0 +1,27 @@
+{
+    "MinMax": {
+        "_type": "MinMax",
+        "model-file": "../models/minmax_proc.model",
+        "features": [
+            "holding.register.8",
+            "holding.register.9",
+            "holding.register.10",
+            "holding.register.11",
+            "discrete.input.4",
+            "discrete.input.5",
+            "discrete.input.6",
+            "discrete.input.7",
+            "coil.0",
+            "coil.1",
+            "coil.2",
+            "coil.3",
+            "coil.4"
+        ],
+        "preprocessors": [],
+        "trainon": 1.0,
+        "save-training": "../models/minmax_proc.model",
+        "allow-none": true,
+        "threshold": 1.0,
+        "discrete_threshold": 10
+    }
+}

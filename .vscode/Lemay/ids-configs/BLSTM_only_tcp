@@ -1,58 +1,41 @@
 {
     "BLSTM": {
         "_type": "BLSTM",
-        "model-file": "../models/blstm.model",
+        "model-file": "../models/blstm_tcp.model",
         "features": [
+            "timestamp",
+            "src",
+            "dest",
+            "activity",
             "length",
             "protocol",
-            "activity",
+            "tcp_seqnr",
+            "tcp_ack",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
             "tcp_No-Operation (NOP)",
-            "tcp_flags",
-            "holding.register.8",
-            "holding.register.9",
-            "holding.register.10",
-            "holding.register.11",
-            "discrete.input.4",
-            "discrete.input.5",
-            "discrete.input.6",
-            "discrete.input.7",
-            "coil.0",
-            "coil.1",
-            "coil.2",
-            "coil.3",
-            "coil.4"
+            "tcp_flags"
         ],
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
-                "tcp_window scale",
                 "tcp_No-Operation (NOP)",
                 "tcp_Maximum segment size",
-                "holding.register.8",
-                "holding.register.9",
-                "holding.register.10",
-                "holding.register.11",
-                "discrete.input.4",
-                "discrete.input.5",
-                "discrete.input.6",
-                "discrete.input.7",
-                "coil.0",
-                "coil.1",
-                "coil.2",
-                "coil.3",
-                "coil.4"
-                ]},
+                "tcp_window scale"
+            ]},
             {"method" : "label", "features" : [
                 "tcp_flags",
                 "protocol",
                 "activity"
+            ]},
+            {"method" : "categorical", "features": [
+                "src",
+                "dest"
             ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/blstm.model",
-        "allow-none": true,
+        "save-training": "../models/blstm_tcp.model",
+        "allow-none": false,
         "learning_rate": [
             0.001,
             0.01,

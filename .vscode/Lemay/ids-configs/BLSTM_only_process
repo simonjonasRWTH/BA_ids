@@ -1,16 +1,9 @@
 {
-    "IsolationForest": {
-        "_type": "IsolationForest",
-        "model-file": "../models/isoFor.model",
+    "BLSTM": {
+        "_type": "BLSTM",
+        "model-file": "../models/blstm_proc.model",
         "features": [
-            "protocol",
-            "activity",
-            "tcp_windowsize",
-            "tcp_window scale",
-            "tcp_Maximum segment size",
-            "tcp_sack_permitted",
-            "tcp_No-Operation (NOP)",
-            "tcp_flags",
+            "timestamp",
             "holding.register.8",
             "holding.register.9",
             "holding.register.10",
@@ -27,10 +20,6 @@
         ],
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
-                "tcp_window scale",
-                "tcp_sack_permitted",
-                "tcp_No-Operation (NOP)",
-                "tcp_Maximum segment size",
                 "holding.register.8",
                 "holding.register.9",
                 "holding.register.10",
@@ -44,22 +33,35 @@
                 "coil.2",
                 "coil.3",
                 "coil.4"
-                ]},
-            {"method" : "label", "features" : [
-                "tcp_flags",
-                "protocol",
-                "activity"
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor.model",
-        "allow-none": true,
-        "n_estimators": 100,
-        "max_samples": "auto",
-        "contamination": "auto",
-        "max_features": 1,
-        "bootstrap": false,
-        "random_state": null,
-        "warm_start": false
+        "save-training": "../models/blstm_proc.model",
+        "allow-none": false,
+        "learning_rate": [
+            0.001,
+            0.01,
+            0.1
+        ],
+        "batch_size": [
+            64,
+            128,
+            256
+        ],
+        "dropout": [
+            0.0,
+            0.1,
+            0.2
+        ],
+        "hidden_layer_size": [
+            64,
+            128,
+            256
+        ],
+        "epochs": 50,
+        "sequence_length": 4,
+        "step": 4,
+        "verbose": 1,
+        "adjust": true
     }
 }

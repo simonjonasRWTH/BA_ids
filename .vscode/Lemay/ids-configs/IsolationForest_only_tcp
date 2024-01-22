@@ -1,0 +1,42 @@
+{
+    "IsolationForest": {
+        "_type": "IsolationForest",
+        "model-file": "../models/isoFor_tcp.model",
+        "features": [
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags"
+        ],
+        "preprocessors": [
+            {"method" : "indicate-none", "features" : [
+                "tcp_window scale",
+                "tcp_No-Operation (NOP)",
+                "tcp_Maximum segment size"
+                ]},
+            {"method" : "label", "features" : [
+                "src",
+                "dest",
+                "tcp_flags",
+                "protocol",
+                "activity"
+            ]}
+        ],
+        "trainon": 1.0,
+        "save-training": "../models/isoFor_tcp.model",
+        "allow-none": true,
+        "n_estimators": 100,
+        "max_samples": "auto",
+        "contamination": "auto",
+        "max_features": 1,
+        "bootstrap": false,
+        "random_state": null,
+        "warm_start": false
+    }
+}

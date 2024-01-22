@@ -1,14 +1,16 @@
 {
-    "RandomForest": {
-        "_type": "RandomForest",
-        "model-file": "../models/rdmFor.model",
+    "SVM": {
+        "_type": "SVM",
+        "model-file": "../models/svm_both.model",
         "features": [
+            "src",
+            "dest",
+            "length",
             "protocol",
             "activity",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
             "tcp_flags",
             "holding.register.8",
@@ -28,9 +30,7 @@
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
-                "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
-                "tcp_Timestamps",
                 "tcp_Maximum segment size",
                 "holding.register.8",
                 "holding.register.9",
@@ -44,75 +44,72 @@
                 "coil.1",
                 "coil.2",
                 "coil.3",
-                "coil.4"]},
+                "coil.4"
+                ]},
             {"method" : "label", "features" : [
                 "tcp_flags",
                 "protocol",
                 "activity"
-                ]}
+                ]},
+            {"method" : "categorical", "features": [
+                "src",
+                "dest"
+            ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/rdmFor.model",
+        "save-training": "../models/svm_both.model",
         "allow-none": true,
-        "n_estimators": [
+        "C": [
+            0.1,
             1,
             10,
             100,
             1000
         ],
-        "criterion": [
-            "gini",
-            "entropy"
+        "kernel": [
+            "rbf",
+            "linear",
+            "sigmoid",
+            "poly"
         ],
-        "max_depth": [
+        "degree": [
+            3
+        ],
+        "gamma": [
+            1,
+            0.1,
+            0.01,
+            0.001,
+            "auto",
+            "scale"
+        ],
+        "coef0": [
+            0.0
+        ],
+        "shrinking": [
+            true
+        ],
+        "tol": [
+            0.001
+        ],
+        "cache_size": [
+            1024
+        ],
+        "class_weight": [
             null,
-            10,
-            100,
-            1000
+            "balanced"
         ],
-        "min_samples_split": [
-            2
+        "max_iter": [
+            -1
         ],
-        "min_samples_leaf": [
-            1
+        "decision_function_shape": [
+            "ovr",
+            "ovo"
         ],
-        "min_weight_fraction_leaf": [
-            0.0
-        ],
-        "max_features": [
-            "sqrt",
-            "log2"
-        ],
-        "max_leaf_nodes": [
-            null
-        ],
-        "min_impurity_decrease": [
-            0.0
-        ],
-        "bootstrap": [
-            true,
-            false
-        ],
-        "oob_score": [
-            true,
+        "break_ties": [
             false
         ],
         "random_state": [
-            null
-        ],
-        "warm_start": [
-            true,
-            false
-        ],
-        "class_weight": [
-            "balanced",
-            "balanced_subsample",
-            null
-        ],
-        "ccp_alpha": [
-            0.0
-        ],
-        "max_samples": [
             null
         ],
         "scoring": null,

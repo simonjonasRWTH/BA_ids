@@ -1,0 +1,91 @@
+{
+    "BLSTM": {
+        "_type": "BLSTM",
+        "model-file": "../models/blstm_both.model",
+        "features": [
+            "timestamp",
+            "src",
+            "dest",
+            "activity",
+            "length",
+            "protocol",
+            "tcp_seqnr",
+            "tcp_ack",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags",
+            "holding.register.8",
+            "holding.register.9",
+            "holding.register.10",
+            "holding.register.11",
+            "discrete.input.4",
+            "discrete.input.5",
+            "discrete.input.6",
+            "discrete.input.7",
+            "coil.0",
+            "coil.1",
+            "coil.2",
+            "coil.3",
+            "coil.4"
+        ],
+        "preprocessors": [
+            {"method" : "indicate-none", "features" : [
+                "tcp_window scale",
+                "tcp_No-Operation (NOP)",
+                "tcp_Maximum segment size",
+                "holding.register.8",
+                "holding.register.9",
+                "holding.register.10",
+                "holding.register.11",
+                "discrete.input.4",
+                "discrete.input.5",
+                "discrete.input.6",
+                "discrete.input.7",
+                "coil.0",
+                "coil.1",
+                "coil.2",
+                "coil.3",
+                "coil.4"
+                ]},
+            {"method" : "label", "features" : [
+                "tcp_flags",
+                "protocol",
+                "activity"
+            ]},
+            {"method" : "categorical", "features": [
+                "src",
+                "dest"
+            ]}
+        ],
+        "trainon": 1.0,
+        "save-training": "../models/blstm_both.model",
+        "allow-none": false,
+        "learning_rate": [
+            0.001,
+            0.01,
+            0.1
+        ],
+        "batch_size": [
+            64,
+            128,
+            256
+        ],
+        "dropout": [
+            0.0,
+            0.1,
+            0.2
+        ],
+        "hidden_layer_size": [
+            64,
+            128,
+            256
+        ],
+        "epochs": 50,
+        "sequence_length": 4,
+        "step": 4,
+        "verbose": 1,
+        "adjust": true
+    }
+}

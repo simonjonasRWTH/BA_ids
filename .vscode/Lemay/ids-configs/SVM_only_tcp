@@ -1,0 +1,96 @@
+{
+    "SVM": {
+        "_type": "SVM",
+        "model-file": "../models/svm_tcp.model",
+        "features": [
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags"
+        ],
+        "preprocessors": [
+            {"method" : "indicate-none", "features" : [
+                "tcp_window scale",
+                "tcp_sack_permitted",
+                "tcp_No-Operation (NOP)",
+                "tcp_Timestamps",
+                "tcp_Maximum segment size",
+                ]},
+            {"method" : "label", "features" : [
+                "tcp_flags",
+                "protocol",
+                "activity"
+                ]},
+            {"method" : "categorical", "features": [
+                "src",
+                "dest"
+            ]}
+        ],
+        "trainon": 1.0,
+        "save-training": "../models/svm_tcp.model",
+        "allow-none": true,
+        "C": [
+            0.1,
+            1,
+            10,
+            100,
+            1000
+        ],
+        "kernel": [
+            "rbf",
+            "linear",
+            "sigmoid",
+            "poly"
+        ],
+        "degree": [
+            3
+        ],
+        "gamma": [
+            1,
+            0.1,
+            0.01,
+            0.001,
+            "auto",
+            "scale"
+        ],
+        "coef0": [
+            0.0
+        ],
+        "shrinking": [
+            true
+        ],
+        "tol": [
+            0.001
+        ],
+        "cache_size": [
+            1024
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "max_iter": [
+            -1
+        ],
+        "decision_function_shape": [
+            "ovr",
+            "ovo"
+        ],
+        "break_ties": [
+            false
+        ],
+        "random_state": [
+            null
+        ],
+        "scoring": null,
+        "jobs": 4,
+        "verbose": 10,
+        "no-probability": false
+    }
+}

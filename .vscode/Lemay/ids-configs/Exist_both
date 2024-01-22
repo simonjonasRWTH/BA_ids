@@ -1,7 +1,7 @@
 {
     "Exists": {
         "_type": "Exists",
-        "model-file": "../models/exist.model",
+        "model-file": "../models/exist_both.model",
         "exclude": [
             "tcp_seqnr",
             "tcp_ack",

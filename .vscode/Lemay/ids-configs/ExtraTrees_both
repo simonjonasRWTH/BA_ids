@@ -1,7 +1,7 @@
 {
-    "DecisionTree": {
-        "_type": "DecisionTree",
-        "model-file": "../models/decTree.model",
+    "ExtraTrees": {
+        "_type": "ExtraTrees",
+        "model-file": "../models/extra_both.model",
         "features": [
             "src",
             "dest",
@@ -11,7 +11,6 @@
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
             "tcp_flags",
             "holding.register.8",
@@ -31,7 +30,6 @@
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
-                "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
                 "tcp_Maximum segment size",
                 "holding.register.8",
@@ -57,18 +55,20 @@
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/decTree.model",
+        "save-training": "../models/extra_both.model",
         "allow-none": true,
+        "n_estimators": [
+            1,
+            10,
+            100,
+            1000
+        ],
         "criterion": [
             "gini",
             "entropy"
         ],
-        "splitter": [
-            "best",
-            "random"
-        ],
         "max_depth": [
-            5,10,20,30
+            null
         ],
         "min_samples_split": [
             2
@@ -81,8 +81,7 @@
         ],
         "max_features": [
             "sqrt",
-            "log2",
-            null
+            "log2"
         ],
         "max_leaf_nodes": [
             null
@@ -90,8 +89,19 @@
         "min_impurity_decrease": [
             0.0
         ],
+        "bootstrap": [
+            true,
+            false
+        ],
+        "oob_score": [
+            true,
+            false
+        ],
         "random_state": [
             null
+        ],
+        "warm_start": [
+            false
         ],
         "class_weight": [
             "balanced",
@@ -100,6 +110,9 @@
         ],
         "ccp_alpha": [
             0.0
+        ],
+        "max_samples": [
+            null
         ],
         "scoring": null,
         "jobs": 5,

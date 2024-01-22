@@ -1,10 +1,13 @@
 {
-    "ExtraTrees": {
-        "_type": "ExtraTrees",
-        "model-file": "../models/extra.model",
+    "RandomForest": {
+        "_type": "RandomForest",
+        "model-file": "../models/rdmFor_both.model",
         "features": [
+            "src",
+            "dest",
             "protocol",
             "activity",
+            "length",
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
@@ -30,6 +33,7 @@
                 "tcp_window scale",
                 "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
+                "tcp_Timestamps",
                 "tcp_Maximum segment size",
                 "holding.register.8",
                 "holding.register.9",
@@ -43,16 +47,17 @@
                 "coil.1",
                 "coil.2",
                 "coil.3",
-                "coil.4"
-                ]},
+                "coil.4"]},
             {"method" : "label", "features" : [
+                "src",
+                "dest",
                 "tcp_flags",
                 "protocol",
                 "activity"
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/extra.model",
+        "save-training": "../models/rdmFor_both.model",
         "allow-none": true,
         "n_estimators": [
             1,
@@ -65,7 +70,10 @@
             "entropy"
         ],
         "max_depth": [
-            null
+            null,
+            10,
+            100,
+            1000
         ],
         "min_samples_split": [
             2
@@ -74,7 +82,7 @@
             1
         ],
         "min_weight_fraction_leaf": [
-            0
+            0.0
         ],
         "max_features": [
             "sqrt",
@@ -98,6 +106,7 @@
             null
         ],
         "warm_start": [
+            true,
             false
         ],
         "class_weight": [
@@ -112,7 +121,7 @@
             null
         ],
         "scoring": null,
-        "jobs": 5,
+        "jobs": 4,
         "verbose": 10,
         "no-probability": false
     }
