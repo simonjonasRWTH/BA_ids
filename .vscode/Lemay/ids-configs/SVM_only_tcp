@@ -20,14 +20,12 @@
                 "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
                 "tcp_Timestamps",
-                "tcp_Maximum segment size",
+                "tcp_Maximum segment size"
                 ]},
             {"method" : "label", "features" : [
                 "tcp_flags",
                 "protocol",
-                "activity"
-                ]},
-            {"method" : "categorical", "features": [
+                "activity",
                 "src",
                 "dest"
             ]}
@@ -89,7 +87,7 @@
             null
         ],
         "scoring": null,
-        "jobs": 4,
+        "jobs": 5,
         "verbose": 10,
         "no-probability": false
     }

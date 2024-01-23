@@ -37,7 +37,7 @@
         ],
         "trainon": 1.0,
         "save-training": "../models/blstm_proc.model",
-        "allow-none": false,
+        "allow-none": true,
         "learning_rate": [
             0.001,
             0.01,

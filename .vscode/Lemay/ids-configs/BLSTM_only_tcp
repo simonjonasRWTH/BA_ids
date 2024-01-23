@@ -26,16 +26,14 @@
             {"method" : "label", "features" : [
                 "tcp_flags",
                 "protocol",
-                "activity"
-            ]},
-            {"method" : "categorical", "features": [
+                "activity",
                 "src",
                 "dest"
             ]}
         ],
         "trainon": 1.0,
         "save-training": "../models/blstm_tcp.model",
-        "allow-none": false,
+        "allow-none": true,
         "learning_rate": [
             0.001,
             0.01,

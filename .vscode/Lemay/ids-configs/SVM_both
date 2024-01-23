@@ -49,9 +49,7 @@
             {"method" : "label", "features" : [
                 "tcp_flags",
                 "protocol",
-                "activity"
-                ]},
-            {"method" : "categorical", "features": [
+                "activity",
                 "src",
                 "dest"
             ]}
@@ -113,7 +111,7 @@
             null
         ],
         "scoring": null,
-        "jobs": 4,
+        "jobs": 5,
         "verbose": 10,
         "no-probability": false
     }

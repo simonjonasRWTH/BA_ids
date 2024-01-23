@@ -15,7 +15,7 @@
             "coil.1",
             "coil.2",
             "coil.3",
-            "coil.4",
+            "coil.4"
         ],
         "preprocessors": [
             {"method" : "indicate-none", "features" : [

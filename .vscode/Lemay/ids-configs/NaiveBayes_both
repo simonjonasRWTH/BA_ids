@@ -49,9 +49,7 @@
             {"method" : "label", "features" : [
                 "tcp_flags",
                 "protocol",
-                "activity"
-            ]},
-            {"method" : "categorical", "features": [
+                "activity",
                 "src",
                 "dest"
             ]}
