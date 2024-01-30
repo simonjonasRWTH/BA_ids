@@ -1,7 +1,7 @@
-IDS=/home/sj/BA_stuff/BA_ids/ipal-iids
-OUT=/home/sj/BA_stuff/transcribed_pcaps/WDT/ids_out
-IN=/home/sj/BA_stuff/transcribed_pcaps/WDT
-CONFIG=/home/sj/BA_stuff/BA_ids/.vscode/WDT
+IDS=/home/spice/BA_ids/ipal-iids
+OUT=/home/spice/WDT/ids_out
+IN=/home/spice/WDT
+CONFIG=/home/spice/BA_ids/.vscode/WDT
 
 for filename in $CONFIG/ids-configs/*; do
     echo "starting attack1 with config: $config" >> $OUT/bash.log; 

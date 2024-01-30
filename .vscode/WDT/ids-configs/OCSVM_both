@@ -1,7 +1,7 @@
 {
-    "IsolationForest": {
-        "_type": "IsolationForest",
-        "model-file": "../models/isoFor.model",
+    "OCSVM": {
+        "_type": "OCSVM",
+        "model-file": "../models/ocsvm_both.model",
         "features": [
             "src",
             "dest",
@@ -11,11 +11,7 @@
             "tcp_windowsize",
             "tcp_window scale",
             "tcp_Maximum segment size",
-            "tcp_Timestamps",
-            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
             "tcp_flags",
             "Tank_1",
             "Tank_2",
@@ -48,9 +44,7 @@
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
-                "tcp_sack_permitted",
                 "tcp_No-Operation (NOP)",
-                "tcp_Timestamps",
                 "tcp_Maximum segment size",
                 "Tank_1",
                 "Tank_2",
@@ -82,20 +76,53 @@
                 ]},
             {"method" : "label", "features" : [
                 "tcp_flags",
-                "src",
-                "dest",
                 "protocol",
-                "activity"
-                ]}
+                "activity",
+                "src",
+                "dest"
+            ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor.model",
+        "save-training": "../models/ocsvm_both.model",
         "allow-none": true,
-        "n_estimators": 100,
-        "max_samples": "auto",
-        "contamination": "auto",
-        "max_features": 1,
-        "bootstrap": false,
-        "random_state": null,
-        "warm_start": false
-    }}
+        "kernel": [
+            "rbf",
+            "linear",
+            "sigmoid",
+            "poly"
+        ],
+        "degree": [
+            3, 4, 5, 6
+        ],
+        "gamma": [
+            1,
+            0.1,
+            0.01,
+            0.001,
+            "auto",
+            "scale"
+        ],
+        "coef0": [
+            0.0
+        ],
+        "shrinking": [
+            true
+        ],
+        "nu": [
+            0.5
+        ],
+        "tol": [
+            0.001
+        ],
+        "cache_size": [
+            2048
+        ],
+        "max_iter": [
+            -1
+        ],
+        "scoring": "accuracy",
+        "jobs": 12,
+        "verbose": 10,
+        "no-probability": false
+    }
+}

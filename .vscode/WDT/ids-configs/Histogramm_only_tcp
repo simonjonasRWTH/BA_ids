@@ -1,0 +1,41 @@
+{
+    "Histogram": {
+    "_type": "Histogram",
+    "model-file": null,
+    "features": [
+        "src",
+        "dest",
+        "length",
+        "activity",
+        "protocol",
+        "timestamp",
+        "tcp_windowsize",
+        "tcp_window scale",
+        "tcp_Maximum segment size",
+        "tcp_Timestamps",
+        "tcp_No-Operation (NOP)",
+        "tcp_seqnr",
+        "tcp_ack",
+        "tcp_flags"
+    ],
+    "preprocessors": [
+        {"method" : "indicate-none", "features" : [
+            "tcp_No-Operation (NOP)",
+            "tcp_window scale",
+            "tcp_Timestamps"
+        ]},
+        {"method" : "label", "features" : [
+            "tcp_flags",
+            "src",
+            "dest",
+            "protocol",
+            "activity"
+        ]}
+    ],
+    "trainon": 1.0,
+    "save-training": null,
+    "allow-none": true,
+    "window_size": 100,
+    "threshold": 1.0,
+    "discrete_threshold": 10
+}}

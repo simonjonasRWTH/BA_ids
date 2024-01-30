@@ -6,6 +6,7 @@ from .classifier.IsolationForest import IsolationForest
 from .classifier.NaiveBayes import NaiveBayes
 from .classifier.RandomForest import RandomForest
 from .classifier.SVM import SVM
+from .classifier.OCSVM import OCSVM
 from .interarrivaltime.Mean import InterArrivalTimeMean
 from .interarrivaltime.Range import InterArrivalTimeRange
 from .kitsune.kitsune import Kitsune
@@ -32,6 +33,7 @@ idss = [
     Kitsune,
     MinMax,
     NaiveBayes,
+    OCSVM,
     OptimalIDS,
     RandomForest,
     SVM,

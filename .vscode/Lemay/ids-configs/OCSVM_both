@@ -1,7 +1,7 @@
 {
-    "ExtraTrees": {
-        "_type": "ExtraTrees",
-        "model-file": "../models/extra_both.model",
+    "OCSVM": {
+        "_type": "OCSVM",
+        "model-file": "../models/ocsvm_both.model",
         "features": [
             "src",
             "dest",
@@ -47,75 +47,53 @@
                 "coil.4"
                 ]},
             {"method" : "label", "features" : [
-                "src",
-                "dest",
                 "tcp_flags",
                 "protocol",
-                "activity"
-                ]}
+                "activity",
+                "src",
+                "dest"
+            ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/extra_both.model",
+        "save-training": "../models/ocsvm_both.model",
         "allow-none": true,
-        "n_estimators": [
+        "kernel": [
+            "rbf",
+            "linear",
+            "sigmoid",
+            "poly"
+        ],
+        "degree": [
+            3, 4, 5, 6
+        ],
+        "gamma": [
             1,
-            10,
-            100,
-            1000
+            0.1,
+            0.01,
+            0.001,
+            "auto",
+            "scale"
         ],
-        "criterion": [
-            "gini",
-            "entropy"
-        ],
-        "max_depth": [
-            null
-        ],
-        "min_samples_split": [
-            2
-        ],
-        "min_samples_leaf": [
-            1
-        ],
-        "min_weight_fraction_leaf": [
-            0
-        ],
-        "max_features": [
-            "sqrt",
-            "log2"
-        ],
-        "max_leaf_nodes": [
-            null
-        ],
-        "min_impurity_decrease": [
+        "coef0": [
             0.0
         ],
-        "bootstrap": [
-            true,
-            false
+        "shrinking": [
+            true
         ],
-        "oob_score": [
-            true,
-            false
+        "nu": [
+            0.5
         ],
-        "random_state": [
-            null
+        "tol": [
+            0.001
         ],
-        "warm_start": [
-            false
+        "cache_size": [
+            2048
         ],
-        "class_weight": [
-            "balanced",
-            "balanced_subsample",
-            null
+        "max_iter": [
+            -1
         ],
-        "ccp_alpha": [
-            0.0
-        ],
-        "max_samples": [
-            null
-        ],
-        "scoring": null,
-        "jobs": 5,
+        "scoring": "accuracy",
+        "jobs": 10,
         "verbose": 10,
         "no-probability": false
     }

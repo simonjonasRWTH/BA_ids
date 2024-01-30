@@ -1,22 +1,8 @@
 {
-    "SVM": {
-        "_type": "SVM",
-        "model-file": "../models/svm.model",
+    "SVOCSVMM": {
+        "_type": "OCSVM",
+        "model-file": "../models/ocsvm_proc.model",
         "features": [
-            "src",
-            "dest",
-            "length",
-            "protocol",
-            "activity",
-            "tcp_windowsize",
-            "tcp_window scale",
-            "tcp_Maximum segment size",
-            "tcp_Timestamps",
-            "tcp_sack_permitted",
-            "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
-            "tcp_flags",
             "Tank_1",
             "Tank_2",
             "Tank_3",
@@ -47,11 +33,6 @@
         ],
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
-                "tcp_window scale",
-                "tcp_sack_permitted",
-                "tcp_No-Operation (NOP)",
-                "tcp_Timestamps",
-                "tcp_Maximum segment size",
                 "Tank_1",
                 "Tank_2",
                 "Tank_3",
@@ -79,25 +60,11 @@
                 "Valv_18",
                 "Valv_20",
                 "Valv_22"
-                ]},
-            {"method" : "label", "features" : [
-                "tcp_flags",
-                "src",
-                "dest",
-                "protocol",
-                "activity"
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/svm.model",
+        "save-training": "../models/ocsvm_proc.model",
         "allow-none": true,
-        "C": [
-            0.1,
-            1,
-            10,
-            100,
-            1000
-        ],
         "kernel": [
             "rbf",
             "linear",
@@ -105,7 +72,7 @@
             "poly"
         ],
         "degree": [
-            3
+            3, 4, 5, 6
         ],
         "gamma": [
             1,
@@ -121,31 +88,20 @@
         "shrinking": [
             true
         ],
+        "nu": [
+            0.5
+        ],
         "tol": [
             0.001
         ],
         "cache_size": [
-            1024
-        ],
-        "class_weight": [
-            null,
-            "balanced"
+            2048
         ],
         "max_iter": [
             -1
         ],
-        "decision_function_shape": [
-            "ovr",
-            "ovo"
-        ],
-        "break_ties": [
-            false
-        ],
-        "random_state": [
-            null
-        ],
-        "scoring": null,
-        "jobs": 4,
+        "scoring": "accuracy",
+        "jobs": 10,
         "verbose": 10,
         "no-probability": false
     }

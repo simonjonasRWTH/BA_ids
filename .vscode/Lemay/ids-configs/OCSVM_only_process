@@ -1,7 +1,7 @@
 {
-    "SVM": {
-        "_type": "SVM",
-        "model-file": "../models/svm_proc.model",
+    "SVOCSVMM": {
+        "_type": "OCSVM",
+        "model-file": "../models/ocsvm_proc.model",
         "features": [
             "holding.register.8",
             "holding.register.9",
@@ -32,18 +32,18 @@
                 "coil.2",
                 "coil.3",
                 "coil.4"
+                ]},
+            {"method" : "label", "features" : [
+                "tcp_flags",
+                "protocol",
+                "activity",
+                "src",
+                "dest"
             ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/svm_proc.model",
+        "save-training": "../models/ocsvm_proc.model",
         "allow-none": true,
-        "C": [
-            0.1,
-            1,
-            10,
-            100,
-            1000
-        ],
         "kernel": [
             "rbf",
             "linear",
@@ -51,7 +51,7 @@
             "poly"
         ],
         "degree": [
-            3
+            3, 4, 5, 6
         ],
         "gamma": [
             1,
@@ -67,31 +67,20 @@
         "shrinking": [
             true
         ],
+        "nu": [
+            0.5
+        ],
         "tol": [
             0.001
         ],
         "cache_size": [
-            1024
-        ],
-        "class_weight": [
-            null,
-            "balanced"
+            2048
         ],
         "max_iter": [
             -1
         ],
-        "decision_function_shape": [
-            "ovr",
-            "ovo"
-        ],
-        "break_ties": [
-            false
-        ],
-        "random_state": [
-            null
-        ],
-        "scoring": null,
-        "jobs": 5,
+        "scoring": "accuracy",
+        "jobs": 10,
         "verbose": 10,
         "no-probability": false
     }

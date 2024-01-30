@@ -1,22 +1,8 @@
 {
-    "BLSTM": {
-    "_type": "BLSTM",
-    "model-file": "../models/blstm.model",
+    "Histogram": {
+    "_type": "Histogram",
+    "model-file": null,
     "features": [
-        "src",
-        "dest",
-        "length",
-        "protocol",
-        "activity",
-        "tcp_windowsize",
-        "tcp_window scale",
-        "tcp_Maximum segment size",
-        "tcp_Timestamps",
-        "tcp_sack_permitted",
-        "tcp_No-Operation (NOP)",
-        "tcp_seqnr",
-        "tcp_ack",
-        "tcp_flags",
         "Tank_1",
         "Tank_2",
         "Tank_3",
@@ -47,11 +33,6 @@
     ],
     "preprocessors": [
         {"method" : "indicate-none", "features" : [
-            "tcp_window scale",
-            "tcp_sack_permitted",
-            "tcp_No-Operation (NOP)",
-            "tcp_Timestamps",
-            "tcp_Maximum segment size",
             "Tank_1",
             "Tank_2",
             "Tank_3",
@@ -79,42 +60,12 @@
             "Valv_18",
             "Valv_20",
             "Valv_22"
-            ]},
-        {"method" : "label", "features" : [
-            "tcp_flags",
-            "src",
-            "dest",
-            "protocol",
-            "activity"
-            ]}
-        ],
+        ]}
+    ],
     "trainon": 1.0,
-    "save-training": "../models/blstm.model",
+    "save-training": "../models/histo.model",
     "allow-none": true,
-    "learning_rate": [
-        0.001,
-        0.01,
-        0.1
-    ],
-    "batch_size": [
-        64,
-        128,
-        256
-    ],
-    "dropout": [
-        0.0,
-        0.1,
-        0.2
-    ],
-    "hidden_layer_size": [
-        64,
-        128,
-        256
-    ],
-    "epochs": 50,
-    "sequence_length": 4,
-    "step": 4,
-    "verbose": 1,
-    "adjust": true
-    }
-}
+    "window_size": 100,
+    "threshold": 1.0,
+    "discrete_threshold": 10
+}}

@@ -1,8 +1,9 @@
 {
-    "ExtraTrees": {
-    "_type": "ExtraTrees",
-    "model-file": "../models/extra.model",
+    "BLSTM": {
+    "_type": "BLSTM",
+    "model-file": "../models/blstm_both.model",
     "features": [
+        "timestamp",
         "src",
         "dest",
         "length",
@@ -11,8 +12,6 @@
         "tcp_windowsize",
         "tcp_window scale",
         "tcp_Maximum segment size",
-        "tcp_Timestamps",
-        "tcp_sack_permitted",
         "tcp_No-Operation (NOP)",
         "tcp_seqnr",
         "tcp_ack",
@@ -48,9 +47,7 @@
     "preprocessors": [
         {"method" : "indicate-none", "features" : [
             "tcp_window scale",
-            "tcp_sack_permitted",
             "tcp_No-Operation (NOP)",
-            "tcp_Timestamps",
             "tcp_Maximum segment size",
             "Tank_1",
             "Tank_2",
@@ -87,70 +84,34 @@
             "protocol",
             "activity"
             ]}
-    ],
+        ],
     "trainon": 1.0,
-    "save-training": "../models/extra.model",
+    "save-training": "../models/blstm_both.model",
     "allow-none": true,
-    "n_estimators": [
-        1,
-        10,
-        100,
-        1000
+    "learning_rate": [
+        0.001,
+        0.01,
+        0.1
     ],
-    "criterion": [
-        "gini",
-        "entropy"
+    "batch_size": [
+        64,
+        128,
+        256
     ],
-    "max_depth": [
-        null
+    "dropout": [
+        0.0,
+        0.1,
+        0.2
     ],
-    "min_samples_split": [
-        2
+    "hidden_layer_size": [
+        64,
+        128,
+        256
     ],
-    "min_samples_leaf": [
-        1
-    ],
-    "min_weight_fraction_leaf": [
-        0
-    ],
-    "max_features": [
-        "sqrt",
-        "log2"
-    ],
-    "max_leaf_nodes": [
-        null
-    ],
-    "min_impurity_decrease": [
-        0.0
-    ],
-    "bootstrap": [
-        true,
-        false
-    ],
-    "oob_score": [
-        true,
-        false
-    ],
-    "random_state": [
-        null
-    ],
-    "warm_start": [
-        false
-    ],
-    "class_weight": [
-        "balanced",
-        "balanced_subsample",
-        null
-    ],
-    "ccp_alpha": [
-        0.0
-    ],
-    "max_samples": [
-        null
-    ],
-    "scoring": null,
-    "jobs": 4,
-    "verbose": 10,
-    "no-probability": false
-}
+    "epochs": 50,
+    "sequence_length": 4,
+    "step": 4,
+    "verbose": 1,
+    "adjust": true
+    }
 }

@@ -1,8 +1,13 @@
 {
     "Histogram": {
     "_type": "Histogram",
-    "model-file": "../models/histo.model",
+    "model-file": null,
     "features": [
+        "src",
+        "dest",
+        "activity",
+        "protocol",
+        "timestamp",
         "length",
         "tcp_flags",
         "tcp_windowsize",
@@ -11,6 +16,7 @@
         "tcp_Timestamps",
         "tcp_seqnr",
         "tcp_ack",
+        "tcp_No-Operation (NOP)",
         "Tank_1",
         "Tank_2",
         "Tank_3",
@@ -47,11 +53,14 @@
         ]},
         {"method" : "label", "features" : [
             "tcp_flags",
-            "tcp_No-Operation (NOP)"
+            "src",
+            "dest",
+            "protocol",
+            "activity"
         ]}
     ],
     "trainon": 1.0,
-    "save-training": "../models/histo.model",
+    "save-training": null,
     "allow-none": true,
     "window_size": 100,
     "threshold": 1.0,

@@ -1,0 +1,95 @@
+{
+    "BLSTM": {
+    "_type": "BLSTM",
+    "model-file": "../models/blstm_proc.model",
+    "features": [
+        "timestamp",
+        "Tank_1",
+        "Tank_2",
+        "Tank_3",
+        "Tank_4",
+        "Tank_5",
+        "Tank_6",
+        "Tank_7", 
+        "Tank_8",
+        "Pump_1",
+        "Pump_2",
+        "Pump_3",
+        "Pump_4",
+        "Pump_5",
+        "Pump_6",
+        "Flow_sensor_1",
+        "Flow_sensor_2",
+        "Flow_sensor_4",
+        "Valv_10",
+        "Valv_11",
+        "Valv_12",
+        "Valv_13",
+        "Valv_14",
+        "Valv_15",
+        "Valv_17",
+        "Valv_18",
+        "Valv_20",
+        "Valv_22"
+    ],
+    "preprocessors": [
+        {"method" : "indicate-none", "features" : [
+            "Tank_1",
+            "Tank_2",
+            "Tank_3",
+            "Tank_4",
+            "Tank_5",
+            "Tank_6",
+            "Tank_7", 
+            "Tank_8",
+            "Pump_1",
+            "Pump_2",
+            "Pump_3",
+            "Pump_4",
+            "Pump_5",
+            "Pump_6",
+            "Flow_sensor_1",
+            "Flow_sensor_2",
+            "Flow_sensor_4",
+            "Valv_10",
+            "Valv_11",
+            "Valv_12",
+            "Valv_13",
+            "Valv_14",
+            "Valv_15",
+            "Valv_17",
+            "Valv_18",
+            "Valv_20",
+            "Valv_22"
+            ]}
+        ],
+    "trainon": 1.0,
+    "save-training": "../models/blstm_proc.model",
+    "allow-none": true,
+    "learning_rate": [
+        0.001,
+        0.01,
+        0.1
+    ],
+    "batch_size": [
+        64,
+        128,
+        256
+    ],
+    "dropout": [
+        0.0,
+        0.1,
+        0.2
+    ],
+    "hidden_layer_size": [
+        64,
+        128,
+        256
+    ],
+    "epochs": 50,
+    "sequence_length": 4,
+    "step": 4,
+    "verbose": 1,
+    "adjust": true
+    }
+}

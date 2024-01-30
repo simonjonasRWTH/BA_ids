@@ -1,0 +1,23 @@
+{    
+    "Exists": {
+        "_type": "Exists",
+        "model-file": "../models/exist.model",
+        "exclude": [
+            "tcp_Timestamps",
+            "timestamp",
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags",
+            "tcp_seqnr",
+            "tcp_ack"
+        ],
+        "threshold": 10
+    }
+}
