@@ -11,19 +11,16 @@ class OCSVM(FeatureIDS):
     _description = "One Class SVM forest classifier."
     _svm_default_settings = {
         # OCSVM GridSearch Parameters
-        "kernel": ["rbf", "linear", "sigmoid", "poly"],
-        "degree": [3],
-        "gamma": [1, 0.1, 0.01, 0.001, "auto", "scale"],
-        "coef0": [0.0],
-        "shrinking": [True],
-        "nu": [0.5],
-        "tol": [0.001],
-        "cache_size": [1024],
-        "max_iter": [-1],
-        # GridSearch Options
-        "scoring": None,  # accuracy ..
+        "kernel": "rbf",
+        "degree": 3,
+        "gamma": "auto",
+        "coef0": 0.0,
+        "shrinking": True,
+        "nu": 0.5,
+        "tol": 0.001,
+        "cache_size": 1024,
+        "max_iter": -1,
         "jobs": 4,
-        "verbose": 10,
     }
 
     def __init__(self, name=None):
@@ -58,36 +55,9 @@ class OCSVM(FeatureIDS):
         }
         settings.logger.info(tuned_parameters)
 
-        # Test if gridsearch is neccesary
-        if max([len(v) for v in tuned_parameters.values()]) > 1:
-            settings.logger.info("Finding best parameteres with GirdSearchCV")
-            svc = GridSearchCV(
-                OneClassSVM(),
-                [tuned_parameters],
-                scoring=self.settings["scoring"],
-                n_jobs=self.settings["jobs"],
-                verbose=self.settings["verbose"],
-            )
-
-            svc.fit(events)
-
-            settings.logger.info("Best parameters set found on development set:")
-            settings.logger.info(svc.best_params_)
-            settings.logger.info("Grid scores on development set:")
-            means = svc.cv_results_["mean_test_score"]
-            stds = svc.cv_results_["std_test_score"]
-            for mean, std, params in zip(means, stds, svc.cv_results_["params"]):
-                settings.logger.info(
-                    "%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params)
-                )
-
-            # Save best estimator
-            self.ocsvm = svc.best_estimator_
-
-        else:
-            tuned_parameters = {k: v[0] for k, v in tuned_parameters.items()}
-            self.ocsvm = OneClassSVM(**tuned_parameters)
-            self.ocsvm.fit(events)
+        tuned_parameters = {k: v[0] for k, v in tuned_parameters.items()}
+        self.ocsvm = OneClassSVM(**tuned_parameters)
+        self.ocsvm.fit(events)
 
     def new_state_msg(self, msg):
         state = super().new_state_msg(msg)

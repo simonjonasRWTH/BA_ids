@@ -39,52 +39,17 @@ class IsolationForest(FeatureIDS):
 
         # Learn Isolation Forest
         settings.logger.info("Learning Isolation Forest")
-
-        tuned_parameters = {
-            "n_estimators" : self.settings["n_estimators"],
-            "max_samples" : self.settings["max_samples"],
-            "contamination" : self.settings["contamination"],
-            "max_features" : self.settings["max_features"],
-            "bootstrap" : self.settings["bootstrap"],
-            "random_state" : self.settings["random_state"],
-            "warm_start" : self.settings["warm_start"],
-        }
-        
-        settings.logger.info(tuned_parameters)
-
-        if max([len(v) for v in tuned_parameters.values()]) > 1:
-            settings.logger.info("Finding best parameteres with GirdSearchCV")
-            ifc = GridSearchCV(
-                IsolationForestClassifier(),
-                [tuned_parameters],
-                scoring=self.settings["scoring"],
-                n_jobs=self.settings["jobs"],
-                verbose=self.settings["verbose"],
-            )
-            ifc.fit(events)
-            settings.logger.info("Best parameters set found on development set:")
-            settings.logger.info(ifc.best_params_)
-            settings.logger.info("Grid scores on development set:")
-            means = ifc.cv_results_["mean_test_score"]
-            stds = ifc.cv_results_["std_test_score"]
-            for mean, std, params in zip(means, stds, ifc.cv_results_["params"]):
-                settings.logger.info(
-                    "%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params)
-                )
-
-            # Save best estimator
-            self.ifc = ifc.best_estimator_
-        else:
-            self.ifc = IsolationForestClassifier(
-                n_estimators=self.settings["n_estimators"],
-                max_samples=self.settings["max_samples"],
-                contamination=self.settings["contamination"],
-                max_features=self.settings["max_features"],
-                bootstrap=self.settings["bootstrap"],
-                random_state=self.settings["random_state"],
-                warm_start=self.settings["warm_start"],
-            )
-            self.ifc.fit(events)
+        self.ifc = IsolationForestClassifier(
+            n_estimators=self.settings["n_estimators"],
+            max_samples=self.settings["max_samples"],
+            contamination=self.settings["contamination"],
+            max_features=self.settings["max_features"],
+            bootstrap=self.settings["bootstrap"],
+            random_state=self.settings["random_state"],
+            warm_start=self.settings["warm_start"],
+            n_jobs=self.settings["jobs"]
+        )
+        self.ifc.fit(events)
 
     def new_state_msg(self, msg):
         state = super().new_state_msg(msg)
