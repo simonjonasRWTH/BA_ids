@@ -57,44 +57,14 @@
         "trainon": 1.0,
         "save-training": "../models/ocsvm_both.model",
         "allow-none": true,
-        "kernel": [
-            "rbf",
-            "linear",
-            "sigmoid",
-            "poly"
-        ],
-        "degree": [
-            3, 4, 5, 6
-        ],
-        "gamma": [
-            1,
-            0.1,
-            0.01,
-            0.001,
-            "auto",
-            "scale"
-        ],
-        "coef0": [
-            0.0
-        ],
-        "shrinking": [
-            true
-        ],
-        "nu": [
-            0.5
-        ],
-        "tol": [
-            0.001
-        ],
-        "cache_size": [
-            2048
-        ],
-        "max_iter": [
-            -1
-        ],
-        "scoring": "accuracy",
-        "jobs": 10,
-        "verbose": 10,
-        "no-probability": false
+        "kernel": "rbf",
+        "degree": 3,
+        "gamma": "auto",
+        "coef0": 0.0,
+        "shrinking": true,
+        "nu": 0.5,
+        "tol": 0.001,
+        "cache_size": 2048,
+        "max_iter": -1
     }
 }
