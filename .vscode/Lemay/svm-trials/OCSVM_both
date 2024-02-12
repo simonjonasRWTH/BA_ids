@@ -1,0 +1,70 @@
+{
+    "OCSVM": {
+        "_type": "OCSVM",
+        "model-file": "../models/ocsvm_both.model",
+        "features": [
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags",
+            "holding.register.8",
+            "holding.register.9",
+            "holding.register.10",
+            "holding.register.11",
+            "discrete.input.4",
+            "discrete.input.5",
+            "discrete.input.6",
+            "discrete.input.7",
+            "coil.0",
+            "coil.1",
+            "coil.2",
+            "coil.3",
+            "coil.4"
+        ],
+        "preprocessors": [
+            {"method" : "indicate-none", "features" : [
+                "tcp_window scale",
+                "tcp_No-Operation (NOP)",
+                "tcp_Maximum segment size",
+                "holding.register.8",
+                "holding.register.9",
+                "holding.register.10",
+                "holding.register.11",
+                "discrete.input.4",
+                "discrete.input.5",
+                "discrete.input.6",
+                "discrete.input.7",
+                "coil.0",
+                "coil.1",
+                "coil.2",
+                "coil.3",
+                "coil.4"
+                ]},
+            {"method" : "label", "features" : [
+                "tcp_flags",
+                "protocol",
+                "activity",
+                "src",
+                "dest"
+            ]}
+        ],
+        "trainon": 1.0,
+        "save-training": "../models/ocsvm_both.model",
+        "allow-none": true,
+        "kernel": "rbf",
+        "degree": 3,
+        "gamma": "auto",
+        "coef0": 0.0,
+        "shrinking": true,
+        "nu": 0.5,
+        "tol": 0.001,
+        "cache_size": 2048,
+        "max_iter": -1
+    }
+}

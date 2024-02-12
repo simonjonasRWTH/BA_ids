@@ -1,8 +1,18 @@
 {
-    "IsolationForest": {
-        "_type": "IsolationForest",
-        "model-file": "../models/isoFor_proc.model",
+    "OCSVM": {
+        "_type": "OCSVM",
+        "model-file": "../models/ocsvm_both.model",
         "features": [
+            "src",
+            "dest",
+            "length",
+            "protocol",
+            "activity",
+            "tcp_windowsize",
+            "tcp_window scale",
+            "tcp_Maximum segment size",
+            "tcp_No-Operation (NOP)",
+            "tcp_flags",
             "Tank_1",
             "Tank_2",
             "Tank_3",
@@ -33,6 +43,9 @@
         ],
         "preprocessors": [
             {"method" : "indicate-none", "features" : [
+                "tcp_window scale",
+                "tcp_No-Operation (NOP)",
+                "tcp_Maximum segment size",
                 "Tank_1",
                 "Tank_2",
                 "Tank_3",
@@ -60,17 +73,26 @@
                 "Valv_18",
                 "Valv_20",
                 "Valv_22"
-                ]}
+                ]},
+            {"method" : "label", "features" : [
+                "tcp_flags",
+                "protocol",
+                "activity",
+                "src",
+                "dest"
+            ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor_proc.model",
+        "save-training": "../models/ocsvm_both.model",
         "allow-none": true,
-        "n_estimators": [100, 200, 500],
-        "max_samples": ["auto"],
-        "contamination": ["auto"],
-        "max_features": [1],
-        "bootstrap": [false],
-        "random_state": [null],
-        "warm_start": [false],
-        "jobs": 10
-    }}
+        "kernel": "rbf",
+        "degree": 3,
+        "gamma": "auto",
+        "coef0": 0.0,
+        "shrinking": true,
+        "nu": 0.5,
+        "tol": 0.001,
+        "cache_size": 2048,
+        "max_iter": -1
+    }
+}

@@ -42,21 +42,17 @@ class OCSVM(FeatureIDS):
 
         # Learn SVM
         settings.logger.info("Learning OCSVM")
-        tuned_parameters = {
-            "kernel": self.settings["kernel"],
-            "degree": self.settings["degree"],
-            "gamma": self.settings["gamma"],
-            "coef0": self.settings["coef0"],
-            "shrinking": self.settings["shrinking"],
-            "nu": self.settings["nu"],
-            "tol": self.settings["tol"],
-            "cache_size": self.settings["cache_size"],
-            "max_iter": self.settings["max_iter"],
-        }
-        settings.logger.info(tuned_parameters)
-
-        tuned_parameters = {k: v[0] for k, v in tuned_parameters.items()}
-        self.ocsvm = OneClassSVM(**tuned_parameters)
+        self.ocsvm = OneClassSVM(
+            kernel=self.settings["kernel"],
+            degree=self.settings["degree"],
+            gamma=self.settings["gamma"],
+            coef0=self.settings["coef0"],
+            shrinking=self.settings["shrinking"],
+            nu=self.settings["nu"],
+            tol=self.settings["tol"],
+            cache_size=self.settings["cache_size"],
+            max_iter=self.settings["max_iter"]
+        )
         self.ocsvm.fit(events)
 
     def new_state_msg(self, msg):
