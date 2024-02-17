@@ -7,9 +7,9 @@ from ids.featureids import FeatureIDS
 
 
 class OCSVM(FeatureIDS):
-    _name = "OCSVM"
+    _name = "ocsvm"
     _description = "One Class SVM forest classifier."
-    _svm_default_settings = {
+    _ocsvm_default_settings = {
         # OCSVM GridSearch Parameters
         "kernel": "rbf",
         "degree": 3,
@@ -25,7 +25,7 @@ class OCSVM(FeatureIDS):
 
     def __init__(self, name=None):
         super().__init__(name=name)
-        self._add_default_settings(self._svm_default_settings)
+        self._add_default_settings(self._ocsvm_default_settings)
 
         self.ocsvm = None
 
@@ -76,7 +76,7 @@ class OCSVM(FeatureIDS):
             "_name": self._name,
             "preprocessors": super().save_trained_model(),
             "settings": self.settings,
-            "classifier": self.svm,
+            "classifier": self.ocsvm,
             "classes": self.classes,
         }
 
@@ -100,7 +100,7 @@ class OCSVM(FeatureIDS):
         assert self._name == model["_name"]
         super().load_trained_model(model["preprocessors"])
         self.settings = model["settings"]
-        self.svm = model["classifier"]
+        self.ocsvm = model["classifier"]
         self.classes = model["classes"]
 
         return True
