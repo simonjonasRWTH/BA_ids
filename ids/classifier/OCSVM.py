@@ -7,7 +7,7 @@ from ids.featureids import FeatureIDS
 
 
 class OCSVM(FeatureIDS):
-    _name = "ocsvm"
+    _name = "OCSVM"
     _description = "One Class SVM forest classifier."
     _ocsvm_default_settings = {
         # OCSVM GridSearch Parameters
@@ -77,7 +77,6 @@ class OCSVM(FeatureIDS):
             "preprocessors": super().save_trained_model(),
             "settings": self.settings,
             "classifier": self.ocsvm,
-            "classes": self.classes,
         }
 
         joblib.dump(model, self._resolve_model_file_path(), compress=3)
