@@ -100,6 +100,5 @@ class OCSVM(FeatureIDS):
         super().load_trained_model(model["preprocessors"])
         self.settings = model["settings"]
         self.ocsvm = model["classifier"]
-        self.classes = model["classes"]
 
         return True
