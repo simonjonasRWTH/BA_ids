@@ -55,16 +55,15 @@
             ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor_both.model",
+        "save-training": "../models/isoFor_both_1000.model",
         "allow-none": true,
-        "n_estimators": [100, 200, 500],
-        "max_samples": ["auto"],
-        "contamination": [0.1, 0.25, "auto"],
-        "max_features": [1,2,5],
-        "bootstrap": [false],
-        "random_state": [null],
-        "warm_start": [true,false],
-        "scoring": [null],
-        "jobs": 10
+        "n_estimators": 1000,
+        "max_samples": "auto",
+        "contamination": "auto",
+        "max_features": 1,
+        "bootstrap": false,
+        "random_state": null,
+        "warm_start": false,
+        "jobs": 4
     }
 }

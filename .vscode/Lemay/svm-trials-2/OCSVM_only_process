@@ -1,18 +1,8 @@
 {
-    "OCSVM": {
+    "SVOCSVMM": {
         "_type": "OCSVM",
-        "model-file": "../models/ocsvm_both.model",
+        "model-file": "../models2/ocsvm_proc.model",
         "features": [
-            "src",
-            "dest",
-            "length",
-            "protocol",
-            "activity",
-            "tcp_windowsize",
-            "tcp_window scale",
-            "tcp_Maximum segment size",
-            "tcp_No-Operation (NOP)",
-            "tcp_flags",
             "holding.register.8",
             "holding.register.9",
             "holding.register.10",
@@ -28,10 +18,7 @@
             "coil.4"
         ],
         "preprocessors": [
-            {"method" : "indicate-none", "features" : [
-                "tcp_window scale",
-                "tcp_No-Operation (NOP)",
-                "tcp_Maximum segment size",
+            {"method" : "minmax", "features": [
                 "holding.register.8",
                 "holding.register.9",
                 "holding.register.10",
@@ -45,17 +32,25 @@
                 "coil.2",
                 "coil.3",
                 "coil.4"
-                ]},
-            {"method" : "label", "features" : [
-                "tcp_flags",
-                "protocol",
-                "activity",
-                "src",
-                "dest"
-            ]}
+            ]},
+            {"method" : "indicate-none", "features" : [
+                "holding.register.8",
+                "holding.register.9",
+                "holding.register.10",
+                "holding.register.11",
+                "discrete.input.4",
+                "discrete.input.5",
+                "discrete.input.6",
+                "discrete.input.7",
+                "coil.0",
+                "coil.1",
+                "coil.2",
+                "coil.3",
+                "coil.4"
+                ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/ocsvm_both.model",
+        "save-training": "../models2/ocsvm_proc.model",
         "allow-none": true,
         "kernel": "rbf",
         "degree": 6,

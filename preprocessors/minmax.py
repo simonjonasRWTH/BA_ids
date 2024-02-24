@@ -27,6 +27,8 @@ class MinMaxPreprocessor(Preprocessor):
                 continue
 
             X = [v[i] for v in values if v[i] is not None]
+            if len(X) == 0:
+                continue
             self.mins[i] = float(np.min(X))
             self.maxs[i] = float(np.max(X))
 

@@ -1,7 +1,7 @@
 {
     "OCSVM": {
         "_type": "OCSVM",
-        "model-file": "../models/ocsvm_tcp.model",
+        "model-file": "../models2/ocsvm_tcp.model",
         "features": [
             "src",
             "dest",
@@ -15,12 +15,18 @@
             "tcp_flags"
         ],
         "preprocessors": [
+            {"method" : "minmax", "features": [
+                "length",
+                "tcp_windowsize",
+                "tcp_window scale",
+                "tcp_Maximum segment size"
+            ]},
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
                 "tcp_No-Operation (NOP)",
                 "tcp_Maximum segment size"
                 ]},
-            {"method" : "label", "features" : [
+            {"method" : "categorical", "features" : [
                 "tcp_flags",
                 "protocol",
                 "activity",
@@ -29,7 +35,7 @@
             ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/ocsvm_tcp.model",
+        "save-training": "../models2/ocsvm_tcp.model",
         "allow-none": true,
         "kernel": "rbf",
         "degree": 6,
