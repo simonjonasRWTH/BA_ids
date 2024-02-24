@@ -25,7 +25,8 @@ for filename in $CONFIG/svmConfigs/*; do
         --config $CONFIG/svmConfigs/$(basename $filename) \
         --combiner.config $CONFIG/wdt_combiner.config \
         --log INFO \
-        --logfile $OUT/res_attack2_$(basename $filename).log;
+        --logfile $OUT/res_attack2_$(basename $filename).log \
+        --retrain;
 
     echo "starting attack3 with config: $config" >> $OUT/bash.log; 
     #attack3
@@ -36,7 +37,8 @@ for filename in $CONFIG/svmConfigs/*; do
         --config $CONFIG/svmConfigs/$(basename $filename) \
         --combiner.config $CONFIG/wdt_combiner.config \
         --log INFO \
-        --logfile $OUT/res_attack3_$(basename $filename).log;
+        --logfile $OUT/res_attack3_$(basename $filename).log \
+        --retrain;
 
     echo "starting attack4 with config: $config" >> $OUT/bash.log; 
     #attack4
@@ -47,5 +49,6 @@ for filename in $CONFIG/svmConfigs/*; do
         --config $CONFIG/svmConfigs/$(basename $filename) \
         --combiner.config $CONFIG/wdt_combiner.config \
         --log INFO \
-        --logfile $OUT/res_attack4_$(basename $filename).log;
+        --logfile $OUT/res_attack4_$(basename $filename).log \
+        --retrain;
 done
