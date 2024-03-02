@@ -1,7 +1,7 @@
 {
     "IsolationForest": {
         "_type": "IsolationForest",
-        "model-file": "../models/isoFor_proc.model",
+        "model-file": "../models/isoFor_proc_500.model",
         "features": [
             "Tank_1",
             "Tank_2",
@@ -63,7 +63,7 @@
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor_proc.model",
+        "save-training": "../models/isoFor_proc_500.model",
         "allow-none": true,
         "n_estimators": 500,
         "max_samples": "auto",
@@ -71,5 +71,6 @@
         "max_features": 1,
         "bootstrap": false,
         "random_state": null,
-        "warm_start": false
+        "warm_start": false,
+        "jobs": 4
     }}

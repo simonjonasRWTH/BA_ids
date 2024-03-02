@@ -1,7 +1,7 @@
 {
     "IsolationForest": {
         "_type": "IsolationForest",
-        "model-file": "../models/isoFor_both_100.model",
+        "model-file": "../models/isoFor_both_1000.model",
         "features": [
             "src",
             "dest",
@@ -83,9 +83,9 @@
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor_both_100.model",
+        "save-training": "../models/isoFor_both_1000.model",
         "allow-none": true,
-        "n_estimators": 100,
+        "n_estimators": 500,
         "max_samples": "auto",
         "contamination": "auto",
         "max_features": 1,

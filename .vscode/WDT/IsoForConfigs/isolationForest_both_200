@@ -1,7 +1,7 @@
 {
     "IsolationForest": {
         "_type": "IsolationForest",
-        "model-file": "../models/isoFor_both.model",
+        "model-file": "../models/isoFor_both_200.model",
         "features": [
             "src",
             "dest",
@@ -12,8 +12,6 @@
             "tcp_window scale",
             "tcp_Maximum segment size",
             "tcp_No-Operation (NOP)",
-            "tcp_seqnr",
-            "tcp_ack",
             "tcp_flags",
             "Tank_1",
             "Tank_2",
@@ -85,7 +83,7 @@
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor_both.model",
+        "save-training": "../models/isoFor_both_200.model",
         "allow-none": true,
         "n_estimators": 200,
         "max_samples": "auto",
@@ -93,5 +91,6 @@
         "max_features": 1,
         "bootstrap": false,
         "random_state": null,
-        "warm_start": false
+        "warm_start": false,
+        "jobs": 4
     }}

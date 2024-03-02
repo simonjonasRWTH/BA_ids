@@ -1,7 +1,7 @@
 {
     "IsolationForest": {
         "_type": "IsolationForest",
-        "model-file": "../models/isoFor_tcp.model",
+        "model-file": "../models/isoFor_tcp_100.model",
         "features": [
             "src",
             "dest",
@@ -29,7 +29,7 @@
                 ]}
         ],
         "trainon": 1.0,
-        "save-training": "../models/isoFor_tcp.model",
+        "save-training": "../models/isoFor_tcp_100.model",
         "allow-none": true,
         "n_estimators": 100,
         "max_samples": "auto",
@@ -37,5 +37,6 @@
         "max_features": 1,
         "bootstrap": false,
         "random_state": null,
-        "warm_start": false
+        "warm_start": false,
+        "jobs": 4
     }}
