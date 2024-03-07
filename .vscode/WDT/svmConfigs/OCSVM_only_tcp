@@ -15,6 +15,12 @@
             "tcp_flags"
         ],
         "preprocessors": [
+            {"method" : "minmax", "features" : [
+                "length",
+                "tcp_windowsize",
+                "tcp_window scale",
+                "tcp_Maximum segment size"
+            ]},
             {"method" : "indicate-none", "features" : [
                 "tcp_window scale",
                 "tcp_No-Operation (NOP)",
@@ -33,12 +39,12 @@
         "allow-none": true,
         "kernel": "rbf",
         "degree": 6,
-        "gamma": 1,
+        "gamma": "auto",
         "coef0": 0.0,
-        "shrinking": false,
+        "shrinking": true,
         "nu": 0.001,
         "tol": 0.001,
-        "cache_size": 2048,
+        "cache_size": 4096,
         "max_iter": -1
     }
 }
