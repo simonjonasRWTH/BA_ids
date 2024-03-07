@@ -60,9 +60,11 @@ class OCSVM(FeatureIDS):
         if state is None:
             return False, None
 
-        alert = bool(self.ocsvm.predict([state])[0])
-
-        return alert, 1 if alert else 0
+        alert = self.ocsvm.predict([state])[0]
+        if alert == -1:
+            return True, 1
+        else:
+            return False, 0
 
     def new_ipal_msg(self, msg):
         # There is no difference for this IDS in state or message format! It only depends on the configuration which features are used.
